@@ -9,11 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f78772591fb0a9479795d73613e7a2e, type: 3}
-  m_Name: MaleZombieAttack
+  m_Name: MaleZombieAttack 1
   m_EditorClassIdentifier: 
   animationClip: {fileID: 7400020, guid: 84f69a54bef86434c85f52abece2b33e, type: 3}
   weaponizedObjects:
   - HeadBone
+  - UpperArm_L
+  - LowerArm_L
+  - Hand_L
+  - UpperArm_R
+  - LowerArm_R
+  - Hand_R
   attackRange: 0
   baseDamage: 10
   damageInterval: 0
