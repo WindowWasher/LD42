@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour {
     private BodyController bodyController;
     private AgentMovementController agentController;
     private AttackManager attackManager;
+    private Animator animator;
+
+
     private FollowPlayerOnSight followPlayerOnSight;
     private float sightRange = 10f;
 
@@ -16,6 +19,9 @@ public class Enemy : MonoBehaviour {
         bodyController = GetComponent<BodyController>();
         agentController = GetComponent<AgentMovementController>();
         attackManager = GetComponent<AttackManager>();
+        animator = GetComponent<Animator>();
+
+        animator.speed = 0.25f;
 
 
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
