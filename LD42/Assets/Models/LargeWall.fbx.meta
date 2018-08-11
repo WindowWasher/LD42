@@ -1,52 +1,14 @@
 fileFormatVersion: 2
-guid: c3becc1320fa78a41a5ee8d336fc9e7d
+guid: 9a0e0000688bf924d9faaad54f10afae
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cube
-    100004: Cube_001
-    100006: _Capsule_Blend_File_Data_
-    100008: Door
-    100010: Wall
-    100012: HalfWall
-    100014: HugeWall
-    100016: LargeWall
     400000: //RootNode
-    400002: Cube
-    400004: Cube_001
-    400006: _Capsule_Blend_File_Data_
-    400008: Door
-    400010: Wall
-    400012: HalfWall
-    400014: HugeWall
-    400016: LargeWall
-    2100000: unnamed
+    2100000: No Name
     2300000: //RootNode
-    2300002: Cube
-    2300004: Cube_001
-    2300006: Door
-    2300008: Wall
-    2300010: HalfWall
-    2300012: HugeWall
-    2300014: LargeWall
     3300000: //RootNode
-    3300002: Cube
-    3300004: Cube_001
-    3300006: Door
-    3300008: Wall
-    3300010: HalfWall
-    3300012: HugeWall
-    3300014: LargeWall
-    4300000: Cube
-    4300002: Cube_001
-    4300004: Door
-    4300006: Wall
-    4300008: HalfWall
-    4300010: HugeWall
-    4300012: LargeWall
-    7400000: Default Take
-    9500000: //RootNode
+    4300000: LargeWall
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -122,7 +84,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
