@@ -8,7 +8,7 @@ public class AttackManager : MonoBehaviour
 
     public List<AttackData> attackData;
     private List<Attack> attacks;
-    private Attack currentAttack;
+    public Attack currentAttack;
     private List<GameObject> targets;
     public float meeleAttackRange;
     private float globalCooldown = 0f;
@@ -122,7 +122,7 @@ public class AttackManager : MonoBehaviour
         }
     }
 
-    GameObject findTargetInRange(Attack attack)
+    public GameObject findTargetInRange(Attack attack)
     {
         foreach (GameObject target in targets)
         {

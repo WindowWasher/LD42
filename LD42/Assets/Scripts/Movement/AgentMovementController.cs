@@ -11,12 +11,14 @@ public class AgentMovementController : MonoBehaviour
     public NavMeshAgent agent;
 
     public GameObject rotateOverride = null;
+    private AttackManager attackManager;
 
     // Use this for initialization
     void Start()
     {
         bodyController = GetComponent<BodyController>();
         initAgent();
+        attackManager = GetComponent<AttackManager>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,10 @@ public class AgentMovementController : MonoBehaviour
     void moveTowardsTarget()
     {
         Vector3 directionToTarget = bodyController.getDirectionToTarget(getNextPosition());
-        bodyController.moveInDirection(directionToTarget);
+        if(attackManager.currentAttack == null || attackManager.findTargetInRange(attackManager.currentAttack) == null)
+        {
+            bodyController.moveInDirection(directionToTarget);
+        }
         if (rotateOverride != null)
         {
             bodyController.lookInDirection(bodyController.getDirectionToTarget(rotateOverride.transform.position));

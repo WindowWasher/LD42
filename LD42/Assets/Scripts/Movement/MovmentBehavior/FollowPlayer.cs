@@ -15,9 +15,11 @@ public class FollowPlayerOnSight : MovementBehavior
 
     public override Vector3 getTargetDestination()
     {
-        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        var directionFromPlayerToObj = Vector3.Normalize(obj.transform.position - playerPosition);
-        var targetPosition = playerPosition + directionFromPlayerToObj * reach;
-        return targetPosition;
+        //Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        //var directionFromPlayerToObj = Vector3.Normalize(obj.transform.position - playerPosition);
+        //var targetPosition = playerPosition + directionFromPlayerToObj * reach;
+
+        //return targetPosition;
+        return GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 }
