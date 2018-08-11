@@ -50,6 +50,8 @@ ModelImporter:
     400042: UpperLeg_L
     400044: UpperLeg_R
     2100000: unnamed
+    2300000: Cube
+    3300000: Cube
     4300000: Cube
     7400000: Default Take
     7400002: KnightAttackDoubleOverhand_001
