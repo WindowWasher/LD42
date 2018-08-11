@@ -14,7 +14,13 @@ MonoBehaviour:
   animationClip: {fileID: 7400020, guid: 84f69a54bef86434c85f52abece2b33e, type: 3}
   weaponizedObjects:
   - HeadBone
-  attackRange: 1
+  - UpperArm_L
+  - LowerArm_L
+  - Hand_L
+  - UpperArm_R
+  - LowerArm_R
+  - Hand_R
+  attackRange: 0
   baseDamage: 10
   damageInterval: 0
   postAttackCooldown: 0
