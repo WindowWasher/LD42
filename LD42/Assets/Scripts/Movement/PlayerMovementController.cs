@@ -8,6 +8,8 @@ public class PlayerMovementController : MonoBehaviour
     public GameObject playerView;
     public BodyController bodyController;
 
+    public GameObject enemyHoldingPlayer = null;
+
     private float mouseXSensitivity = 5.0f;
     private float mouseYSensitivity = 2.0f;
     private float mouseSmoothing = 1.0f;
@@ -18,6 +20,17 @@ public class PlayerMovementController : MonoBehaviour
     {
         bodyController = GetComponent<BodyController>();
         lockCursor();
+    }
+
+    public void Freeze(GameObject enemyHoldingPlayer)
+    {
+        this.enemyHoldingPlayer = enemyHoldingPlayer;
+    }
+
+    public void UnFreeze()
+    {
+        // TODO allow multiple enemies to hold player?
+        this.enemyHoldingPlayer = null;
     }
 
     void bodyMove()
@@ -52,7 +65,10 @@ public class PlayerMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        bodyMove();
+        if (enemyHoldingPlayer == null)
+        {
+            bodyMove();
+        }
         cameraMove();
     }
 

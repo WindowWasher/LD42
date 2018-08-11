@@ -14,11 +14,15 @@ public class AttackManager : MonoBehaviour
     private float globalCooldown = 0f;
     public Timer canAttackTimer = new Timer();
 
+    PlayerMovementController playerController;
+
     // Use this for initialization
     void Start()
     {
 
         InitTargets();
+
+        playerController = GameObject.Find("Player").GetComponent<PlayerMovementController>();
 
         // create attacks from the attack data
         attacks = new List<Attack>();
@@ -37,9 +41,17 @@ public class AttackManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentAttack != null && currentAttack.attackLengthTimer.Expired())
+        if (currentAttack != null)
         {
-            currentAttack = null;
+            if (currentAttack.attackLengthTimer.Expired())
+            {
+                currentAttack = null;
+            }
+            else
+            {
+                // Still animating attack
+                return;
+            }
         }
 
         if (!canAttackTimer.Expired())
@@ -47,6 +59,8 @@ public class AttackManager : MonoBehaviour
             // we aren't ready to attack again yet
             return;
         }
+
+        UnFreezeIfHolding();
 
         Attack nextAttack = GetNextAttack();
         GameObject target = findTargetInRange(nextAttack);
@@ -83,7 +97,29 @@ public class AttackManager : MonoBehaviour
         if (currentAttack == null || !currentAttack.validWeaponObj(weaponUsed.name) || !currentAttack.ValidHealth(healthHit))
             return;
 
+        if(healthHit.transform.root.tag == "Player")
+        {
+            if (weaponUsed.name == "HeadBone")
+            {
+                UnFreezeIfHolding();
+            }
+            else
+            {
+                healthHit.GetComponent<PlayerMovementController>().Freeze(this.transform.gameObject);
+                return;
+            }
+        }
+
+
         currentAttack.DoDamage(healthHit);
+    }
+
+    public void UnFreezeIfHolding()
+    {
+        if (playerController.enemyHoldingPlayer == this.transform.gameObject)
+        {
+            playerController.UnFreeze();
+        }
     }
 
     GameObject findTargetInRange(Attack attack)

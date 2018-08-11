@@ -971,7 +971,7 @@ Prefab:
     - target: {fileID: 114227025215137898, guid: 6a71b7261a2b9a745b90f05093a0cf22,
         type: 2}
       propertyPath: rotationSpeed
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114227025215137898, guid: 6a71b7261a2b9a745b90f05093a0cf22,
         type: 2}
@@ -983,6 +983,12 @@ Prefab:
       propertyPath: meeleAttackRange
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114594344797565874, guid: 6a71b7261a2b9a745b90f05093a0cf22,
+        type: 2}
+      propertyPath: attackData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c9fc4a1dbdd3e146a708d9e2a5cfc92,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a71b7261a2b9a745b90f05093a0cf22, type: 2}
   m_IsPrefabParent: 0
@@ -2931,6 +2937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerView: {fileID: 1534143517}
   bodyController: {fileID: 0}
+  enemyHoldingPlayer: {fileID: 0}
 --- !u!114 &1525437503
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class Attack
     public void BeginAttack(Animator animator)
     {
         ResetHitTimers();
-        attackLengthTimer.Start(attackLength);
+        attackLengthTimer.Start(attackLength / animator.speed);
         attackCooldownTimer.Start(data.postAttackCooldown);
         // TODO I really need to fix this
         animator.Play(data.animationClip.name.Replace("Clip", "") + "BlendTree");
