@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33591992342847474}
   - component: {fileID: 23262979723271870}
   - component: {fileID: 65863434258995764}
+  - component: {fileID: 114944930165849124}
+  - component: {fileID: 114034943879466248}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Wood
@@ -97,3 +99,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.1999999, z: 1.1999999}
   m_Center: {x: -4.1318055e-15, y: 0, z: 0.5814999}
+--- !u!114 &114034943879466248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578541322535346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b050971ade56a49b7c7348e799411f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114944930165849124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578541322535346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bb1b7f96ce75748bab89e18410354e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  playerCanFix: 0

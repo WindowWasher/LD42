@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour {
     public AttackManager attackManager;
     private Animator animator;
 
-
+    private AttackBarrier attackFire;
     private FollowPlayerOnSight followPlayerOnSight;
     public AttackBarrier attackBarrier;
     private float sightRange = 10f;
+
+    private bool playerKiller = false;
 
     private Timer rightAfterDeathTimer = null;
 
@@ -25,13 +27,24 @@ public class Enemy : MonoBehaviour {
         animator = GetComponent<Animator>();
 
         animator.speed = 0.25f;
+        playerKiller = (Random.value > 0.5f);
 
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
-        agentController.SetBehavior(followPlayerOnSight);
+        attackFire = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, GameObject.Find("BonFire"));
+        defaultTarget();
 
+    }
 
-        agentController.SetBehavior(followPlayerOnSight);
-
+    void defaultTarget()
+    {
+        if (playerKiller)
+        {
+            agentController.SetBehavior(followPlayerOnSight);
+        }
+        else
+        {
+            agentController.SetBehavior(attackFire);
+        }
     }
 	
 	// Update is called once per frame
@@ -47,7 +60,8 @@ public class Enemy : MonoBehaviour {
         if(agentController.movementBehavior == attackBarrier && attackBarrier != null && attackBarrier.target == null)
         {
             // target just died, switch back to player
-            agentController.SetBehavior(followPlayerOnSight);
+            //agentController.SetBehavior(followPlayerOnSight);
+            defaultTarget();
         }
 
         if(rightAfterDeathTimer != null && rightAfterDeathTimer.Expired())
