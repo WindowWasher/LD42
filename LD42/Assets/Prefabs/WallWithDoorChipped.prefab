@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4560926084259702}
   - component: {fileID: 33270471549545116}
   - component: {fileID: 23915836916484710}
-  - component: {fileID: 65323444910475568}
+  - component: {fileID: 64601380952091796}
   m_Layer: 0
   m_Name: WallWithDoorChipped
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1457315355126286}
   m_LocalRotation: {x: 0.000000021855694, y: -0.00000004371139, z: 1.0165751e-15,
     w: 1}
-  m_LocalPosition: {x: -67.888565, y: -84.99999, z: 41.50099}
+  m_LocalPosition: {x: -90, y: 0, z: 195.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,8 +85,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457315355126286}
   m_Mesh: {fileID: 4300000, guid: 0b625bfeaf3edb142b2eb4f989b22c89, type: 3}
---- !u!65 &65323444910475568
-BoxCollider:
+--- !u!64 &64601380952091796
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -94,6 +94,8 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.24999999, y: 12, z: 12.000003}
-  m_Center: {x: -0.12500368, y: 6.000003, z: -6.000012}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0b625bfeaf3edb142b2eb4f989b22c89, type: 3}
