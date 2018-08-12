@@ -93,7 +93,65 @@ public class Arrow : MonoBehaviour {
         //cube.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 
-    public void OnCollisionEnter(Collision other)
+    //public void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.layer == LayerMask.NameToLayer("PlayerLayer"))
+    //    {
+    //        return;
+    //    }
+
+    //    noHitTimer = null;
+
+    //    Debug.Log("Hit: " + other.gameObject.name);
+
+    //    Health otherHealth = other.gameObject.GetComponentInParent<Health>();
+
+    //    if (otherHealth != null)
+    //    {
+    //        Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+    //        EnemyBodyPart enemyPart = other.gameObject.GetComponent<EnemyBodyPart>();
+    //        if (enemy == null || enemyPart == null)
+    //            return;
+    //        //if(enemy != null && enemyPart != null)
+    //        //{
+    //        enemy.HitWithArrow(enemyPart, this);
+    //        //}
+    //        //else {
+    //        //    otherHealth.TakeDamage(damage);
+    //        //}
+
+    //    }
+    //    else
+    //    {
+    //        deathTimer = new Timer();
+    //        deathTimer.Start(60f);
+    //    }
+
+    //    var heading = other.contacts[0].point - this.transform.position;
+    //    var distance = heading.magnitude;
+    //    var direction = heading / distance; // This is now the normalized direction.
+
+    //    Debug.Log("Distance: " + distance.ToString());
+
+    //    this.transform.position = this.transform.position + direction * distance / 2;
+
+    //    // do this to avoid scaling issues
+    //    GameObject newObj = new GameObject();
+    //    this.transform.parent = newObj.transform;
+    //    newObj.transform.parent = other.transform;
+    //    //newObj.transform.parent = other.GetComponentInParent<Enemy>().GetComponentInChildren<EnemyBodyPart>().gameObject.transform;
+
+    //    this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    //    this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+    //    this.GetComponent<Rigidbody>().useGravity = false;
+    //    this.GetComponent<Rigidbody>().isKinematic = true;
+    //    //this.transform.parent = other.transform;
+    //    this.GetComponent<CapsuleCollider>().enabled = false;
+
+
+    //}
+
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("PlayerLayer"))
         {
@@ -127,18 +185,22 @@ public class Arrow : MonoBehaviour {
             deathTimer.Start(60f);
         }
 
-        var heading = other.contacts[0].point - this.transform.position;
+        var heading = other.transform.position - this.transform.position;
         var distance = heading.magnitude;
         var direction = heading / distance; // This is now the normalized direction.
 
         Debug.Log("Distance: " + distance.ToString());
 
-        this.transform.position = this.transform.position + direction * distance / 2;
+        this.transform.position = this.transform.position + direction * distance * 0.8f;
+        //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z);
+
 
         // do this to avoid scaling issues
         GameObject newObj = new GameObject();
         this.transform.parent = newObj.transform;
         newObj.transform.parent = other.transform;
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, other.transform.position.z);
+
         //newObj.transform.parent = other.GetComponentInParent<Enemy>().GetComponentInChildren<EnemyBodyPart>().gameObject.transform;
 
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -173,7 +235,7 @@ public class Arrow : MonoBehaviour {
     //        //else {
     //        //    otherHealth.TakeDamage(damage);
     //        //}
-            
+
     //    }
     //    else
     //    {

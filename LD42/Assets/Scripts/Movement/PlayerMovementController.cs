@@ -90,7 +90,7 @@ public class PlayerMovementController : MonoBehaviour
         this.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, this.transform.up);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (enemyHoldingPlayer == null)
         {
@@ -131,6 +131,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter " + other.name);
         AttackManager attackController = other.gameObject.GetComponentInParent<AttackManager>();
 
         if (attackController != null)

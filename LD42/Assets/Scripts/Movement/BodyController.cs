@@ -27,7 +27,7 @@ public class BodyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         updateExternalForces();
         updatePosition();
@@ -42,7 +42,7 @@ public class BodyController : MonoBehaviour
 
     public void moveInDirection(Vector3 direction)
     {
-        controller.Move(direction * speed * Time.fixedDeltaTime * physicsToForceModifer);
+        controller.Move(direction * speed * Time.deltaTime * physicsToForceModifer);
     }
 
     public void jump()
@@ -53,7 +53,7 @@ public class BodyController : MonoBehaviour
     public void lookInDirection(Vector3 direction)
     {
         // Look rotation should work for something like a head, but you don't want a body to look at a player
-        Vector3 lookRotation = Vector3.RotateTowards(transform.forward, direction, rotationSpeed * Time.fixedDeltaTime, 0.0f);
+        Vector3 lookRotation = Vector3.RotateTowards(transform.forward, direction, rotationSpeed * Time.deltaTime, 0.0f);
         Vector3 spinRotation = new Vector3(lookRotation.x, 0, lookRotation.z);
         if (spinRotation != Vector3.zero)
         {
@@ -64,14 +64,19 @@ public class BodyController : MonoBehaviour
 
     private void updatePosition()
     {
-        controller.Move(this.transform.InverseTransformDirection(externalForces * Time.fixedDeltaTime * physicsToForceModifer));
+        if(externalForces != Vector3.zero)
+        {
+            Debug.Log(this.gameObject.name + " External Forces: " + externalForces.ToString());
+            controller.Move(this.transform.InverseTransformDirection(externalForces * Time.deltaTime * physicsToForceModifer));
+        }
+        //controller.Move(this.transform.InverseTransformDirection(externalForces * Time.deltaTime * physicsToForceModifer));
     }
 
     private void updateExternalForces()
     {
         // add friction and gravity
         float externalForceReduction = 2f;
-        float externalFrameReduction = (Time.fixedDeltaTime * externalForceReduction);
+        float externalFrameReduction = (Time.deltaTime * externalForceReduction);
         float maxExternalForce = 3f;
         if (Mathf.Abs(externalForces.x) > maxExternalForce)
         {
@@ -88,11 +93,24 @@ public class BodyController : MonoBehaviour
             externalForces.x = externalForces.x - externalFrameReduction * (externalForces.x > 0 ? 1 : -1);
         }
 
-        if (this.controller.isGrounded && externalForces.y < 0)
+        if(this.gameObject.GetComponent<Enemy>() == null)
         {
-            externalForces.y = 0f;
+            if(this.controller.isGrounded)
+            {
+                externalForces.y = 0f;
+            }
+            else
+            {
+                externalForces.y = Mathf.Max(externalForces.y - gravity * Time.deltaTime, -terminalVelocity);
+            }
+
         }
-        externalForces.y = Mathf.Max(externalForces.y - gravity * Time.fixedDeltaTime, -terminalVelocity);
+
+        //if ((this.gameObject.GetComponent<Enemy>() != null || this.controller.isGrounded) && externalForces.y < 0)
+        //{
+        //    externalForces.y = 0f;
+        //}
+        
 
         if (Mathf.Abs(externalForces.z) > maxExternalForce)
         {
@@ -114,6 +132,19 @@ public class BodyController : MonoBehaviour
 
     public void Ragdoll()
     {
+
+        foreach(EnemyBodyPart bodyPart in this.GetComponentsInChildren<EnemyBodyPart>())
+        {
+            if(bodyPart.hasRigidBody)
+            {
+                bodyPart.gameObject.AddComponent<Rigidbody>();
+            }
+            if(bodyPart.jointBodyObj != null)
+            {
+                bodyPart.gameObject.AddComponent<CharacterJoint>();
+                bodyPart.gameObject.GetComponent<CharacterJoint>().connectedBody = bodyPart.jointBodyObj.GetComponent<Rigidbody>();
+            }
+        }
         
         foreach (Collider collider in this.GetComponentsInChildren<Collider>())
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class AttackManager : MonoBehaviour
     private float globalCooldown = 0f;
     public Timer canAttackTimer = new Timer();
 
+    public NavMeshAgent navMeshAgent;
+
     PlayerMovementController playerController;
 
     private GameObject currentTarget;
@@ -22,6 +25,8 @@ public class AttackManager : MonoBehaviour
     {
 
         InitTargets();
+
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
         playerController = GameObject.Find("Player").GetComponent<PlayerMovementController>();
 
@@ -53,6 +58,8 @@ public class AttackManager : MonoBehaviour
 
 
                 currentAttack = null;
+                navMeshAgent.updatePosition = true;
+                navMeshAgent.updateRotation = true;
             }
             else
             {
@@ -100,6 +107,9 @@ public class AttackManager : MonoBehaviour
         attack.BeginAttack(GetComponent<Animator>());
         canAttackTimer.Start(attack.attackLength + globalCooldown);
         currentAttack = attack;
+
+        navMeshAgent.updatePosition = false;
+        navMeshAgent.updateRotation = false;
     }
 
     public void HitHealth(Health healthHit, GameObject weaponUsed)
