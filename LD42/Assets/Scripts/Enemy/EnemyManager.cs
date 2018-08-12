@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour
     //public float waveSpawnRadius;
     //public Vector3 center;
 
-    float interval = 30f;
+    float interval = 0f;
     public float localSpawnRadius;
 
     GameObject[] spawnPoints;
@@ -127,7 +127,7 @@ public class EnemyManager : MonoBehaviour
         if (waveNumber == 1)
         {
             numberOfSpawnLocations = 2;
-            numberOfEnemiesToSpawn = 2;
+            numberOfEnemiesToSpawn = 20;
         }
         else if (waveNumber == 3)
         {

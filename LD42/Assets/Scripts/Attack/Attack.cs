@@ -79,6 +79,9 @@ public class Attack
     /// <returns></returns>
     public bool ValidHealth(Health health)
     {
+        if (health == null)
+            return false;
+
         // We are valid if we haven't hit this health during the attack
         if (!hitTimers.ContainsKey(health))
             return true;
