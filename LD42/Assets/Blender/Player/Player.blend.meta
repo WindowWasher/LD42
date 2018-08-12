@@ -73,6 +73,9 @@ ModelImporter:
     7400030: ShootBow
     7400032: SteadyBow2
     7400034: SteadyBow3
+    7400036: Aim
+    7400038: Fire
+    7400040: SteadyBow4
     9500000: //RootNode
     13700000: Cylinder
   externalObjects: {}

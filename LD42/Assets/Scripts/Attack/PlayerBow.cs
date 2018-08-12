@@ -30,7 +30,7 @@ public class PlayerBow : MonoBehaviour {
     private Animator playerArrowAnimator;
 
     private Timer arrowReloadTimer = null;
-    private float arrowReloadSpeed = 1f;
+    private float arrowReloadSpeed = 0.75f;
 
     // Use this for initialization
     void Start () {
@@ -55,17 +55,35 @@ public class PlayerBow : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            playerAnimator.Play("PlayerFireBowBlendTree");
-            playerArrowAnimator.Play("PlayerFireBowBlendTree");
-            GameObject newArrow = GameObject.Instantiate(playerArrow, playerArrow.transform.position, playerArrow.transform.rotation);
+            //playerAnimator.Play("PlayerFireBowBlendTree");
+            //playerArrowAnimator.Play("PlayerFireBowBlendTree");
+           
+
+            startBowAnimation("PlayerAimBlendTree");
+
+           
+
+        }
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            startBowAnimation("PlayerFireBowBlendTree");
+
+            //GameObject newArrow = GameObject.Instantiate(playerArrow, playerArrow.transform.position, playerArrow.transform.rotation);
+            //GameObject newArrow = GameObject.Instantiate(playerArrow, playerArrow.transform.position, playerArrow.transform.rotation);
+            GameObject newArrow = GameObject.Instantiate(playerArrow);
+
+
+            //newArrow.transform.rotation = Quaternion.identity;
+            //newArrow.transform.localRotation = Quaternion.identity;
+            newArrow.transform.position = playerArrow.transform.position;
             newArrow.SetActive(true);
             newArrow.AddComponent<Arrow>();
             newArrow.GetComponent<Arrow>().setTargetPosition(getTargetPosition());
 
-            //arrowModelDisplay.SetActive(false);
+            arrowModelDisplay.SetActive(false);
             arrowReloadTimer = new Timer();
             arrowReloadTimer.Start(arrowReloadSpeed);
-
         }
 
         if(arrowReloadTimer != null && arrowReloadTimer.Expired())
@@ -73,6 +91,12 @@ public class PlayerBow : MonoBehaviour {
             arrowModelDisplay.SetActive(true);
             arrowReloadTimer = null;
         }
+    }
+
+    void startBowAnimation(string animationName)
+    {
+        playerAnimator.Play(animationName);
+        playerArrowAnimator.Play(animationName);
     }
 
     GameObject getTargetedObject()

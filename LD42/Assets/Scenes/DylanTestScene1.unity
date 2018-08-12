@@ -1215,7 +1215,12 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 100000, guid: 3b96a2bb5d8dde645be0f9af8a33104e, type: 3}
+      propertyPath: m_Name
+      value: PlayerArrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 3b96a2bb5d8dde645be0f9af8a33104e, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 3b96a2bb5d8dde645be0f9af8a33104e, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &559685137
@@ -2499,6 +2504,18 @@ Prefab:
     - target: {fileID: 100032, guid: b368f5ff9237c3044a5c4490498e5a56, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: b368f5ff9237c3044a5c4490498e5a56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: b368f5ff9237c3044a5c4490498e5a56, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: b368f5ff9237c3044a5c4490498e5a56, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b368f5ff9237c3044a5c4490498e5a56, type: 3}
