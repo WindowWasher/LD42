@@ -38,6 +38,18 @@ ModelImporter:
     100064: ConcreteFloor
     100066: ColumnBroken
     100068: ColumnBroken2
+    100070: Door_001
+    100072: DoorBroken
+    100074: ColumnBroken3
+    100076: ColumnBroken4
+    100078: Platform
+    100080: RailingLong
+    100082: RailingLongNoEnds
+    100084: RailingPiece
+    100086: RailingShort
+    100088: RailingShortNoEnds
+    100090: HalfWall_001
+    100092: Ramp
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -73,6 +85,18 @@ ModelImporter:
     400064: ConcreteFloor
     400066: ColumnBroken
     400068: ColumnBroken2
+    400070: Door_001
+    400072: DoorBroken
+    400074: ColumnBroken3
+    400076: ColumnBroken4
+    400078: Platform
+    400080: RailingLong
+    400082: RailingLongNoEnds
+    400084: RailingPiece
+    400086: RailingShort
+    400088: RailingShortNoEnds
+    400090: HalfWall_001
+    400092: Ramp
     2100000: unnamed
     2100002: Metal
     2100004: CreateEdge
@@ -118,6 +142,18 @@ ModelImporter:
     2300062: ConcreteFloor
     2300064: ColumnBroken
     2300066: ColumnBroken2
+    2300068: Door_001
+    2300070: DoorBroken
+    2300072: ColumnBroken3
+    2300074: ColumnBroken4
+    2300076: Platform
+    2300078: RailingLong
+    2300080: RailingLongNoEnds
+    2300082: RailingPiece
+    2300084: RailingShort
+    2300086: RailingShortNoEnds
+    2300088: HalfWall_001
+    2300090: Ramp
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -152,6 +188,18 @@ ModelImporter:
     3300062: ConcreteFloor
     3300064: ColumnBroken
     3300066: ColumnBroken2
+    3300068: Door_001
+    3300070: DoorBroken
+    3300072: ColumnBroken3
+    3300074: ColumnBroken4
+    3300076: Platform
+    3300078: RailingLong
+    3300080: RailingLongNoEnds
+    3300082: RailingPiece
+    3300084: RailingShort
+    3300086: RailingShortNoEnds
+    3300088: HalfWall_001
+    3300090: Ramp
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -185,6 +233,18 @@ ModelImporter:
     4300060: ConcreteFloor
     4300062: ColumnBroken
     4300064: ColumnBroken2
+    4300066: DoorBroken
+    4300068: Door_001
+    4300070: ColumnBroken3
+    4300072: ColumnBroken4
+    4300074: RailingPiece
+    4300076: RailingShortNoEnds
+    4300078: RailingLongNoEnds
+    4300080: RailingLong
+    4300082: RailingShort
+    4300084: Platform
+    4300086: HalfWall_001
+    4300088: Ramp
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
