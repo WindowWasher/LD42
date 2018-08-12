@@ -17,13 +17,15 @@ public class AttackManager : MonoBehaviour
 
     public NavMeshAgent navMeshAgent;
 
+    private Enemy enemy;
+
     PlayerMovementController playerController;
 
     private GameObject currentTarget;
     // Use this for initialization
     void Start()
     {
-
+        enemy = GetComponent<Enemy>();
         InitTargets();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -86,10 +88,10 @@ public class AttackManager : MonoBehaviour
         }
     }
 
-    public void addTarget(GameObject obj)
-    {
-        targets.Add(obj);
-    }
+    //public void addBarrierTarget(AttackBarrier attackBarrier)
+    //{
+        
+    //}
 
     Attack GetNextAttack()
     {
@@ -147,6 +149,12 @@ public class AttackManager : MonoBehaviour
 
     public GameObject findTargetInRange(Attack attack)
     {
+
+        if(enemy.attackBarrier != null && enemy.attackBarrier.target != null && Vector3.Distance(enemy.attackBarrier.targetPosition, this.transform.position) <= attack.attackRange)
+        {
+            return enemy.attackBarrier.target;
+        }
+
         foreach (GameObject target in targets)
         {
             if (target!=null && Vector3.Distance(target.transform.position, this.transform.position) <= attack.attackRange)

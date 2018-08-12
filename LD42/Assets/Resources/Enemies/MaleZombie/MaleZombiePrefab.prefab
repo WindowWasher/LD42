@@ -1047,6 +1047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114114853457292532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1058,6 +1060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114144466739381846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1069,6 +1073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114146587223551040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1080,6 +1086,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114150003165842716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1104,6 +1112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114227025215137898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1131,6 +1141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114266945406307970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1142,6 +1154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114356845054148882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1153,6 +1167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114395428377030944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1164,6 +1180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114522173472876924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1175,6 +1193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114582955930393326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1186,6 +1206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114594344797565874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,6 +1222,7 @@ MonoBehaviour:
   attackData:
   - {fileID: 11400000, guid: 2c9fc4a1dbdd3e146a708d9e2a5cfc92, type: 2}
   meeleAttackRange: 1.75
+  navMeshAgent: {fileID: 0}
 --- !u!114 &114611162763544522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1225,6 +1248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114804835242361506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1236,6 +1261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114826190526699236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1247,6 +1274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114836521358336642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1258,6 +1287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756cb8b176ad634388fd288cc9b4de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBodyObj: {fileID: 0}
+  hasRigidBody: 0
 --- !u!114 &114986430162879114
 MonoBehaviour:
   m_ObjectHideFlags: 1

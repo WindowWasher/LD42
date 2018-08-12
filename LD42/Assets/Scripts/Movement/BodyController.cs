@@ -132,7 +132,7 @@ public class BodyController : MonoBehaviour
 
     public void Ragdoll()
     {
-
+        //this.GetComponent<NavMeshAgent>().enabled = false;
         foreach(EnemyBodyPart bodyPart in this.GetComponentsInChildren<EnemyBodyPart>())
         {
             if(bodyPart.hasRigidBody)

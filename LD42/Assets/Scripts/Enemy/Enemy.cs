@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour {
 
 
     private FollowPlayerOnSight followPlayerOnSight;
-    private AttackBarrier attackBarrier;
+    public AttackBarrier attackBarrier;
     private float sightRange = 10f;
 
 	// Use this for initialization
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour {
     public void switchTarget(GameObject barrier)
     {
         attackBarrier = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, barrier);
-        attackManager.addTarget(barrier);
+        //attackManager.addBarrierTarget();
         agentController.SetBehavior(attackBarrier);
     }
 

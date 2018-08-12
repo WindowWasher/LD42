@@ -54,21 +54,50 @@ public class Item : MonoBehaviour {
         this.GetComponent<Rigidbody>().isKinematic = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    //Debug.Log("Hit " + collision.gameObject.name);
+    //    if(collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+    //    {
+    //        falling = false;
+    //        this.GetComponent<Rigidbody>().isKinematic = true;
+    //        return;
+    //    }
+
+
+    //    Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
+    //    if (enemy)
+    //    {
+    //        if(heldByPlayer && !playerInventory.hittingEnemiesTimer.Expired())
+    //        {
+    //            var heading = enemy.transform.position - this.transform.position;
+    //            var distance = heading.magnitude;
+    //            var direction = heading / distance;
+    //            enemy.bodyController.externalForces += (direction * 2f);
+    //            enemy.attackManager.UnFreezeIfHolding();
+    //        }
+    //        else
+    //        {
+    //            enemy.switchTarget(this.gameObject);
+    //        }
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Hit " + collision.gameObject.name);
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if (falling && other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
             falling = false;
             this.GetComponent<Rigidbody>().isKinematic = true;
             return;
         }
 
-        
-        Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
+
+        Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
         if (enemy)
         {
-            if(heldByPlayer && !playerInventory.hittingEnemiesTimer.Expired())
+            if (heldByPlayer && !playerInventory.hittingEnemiesTimer.Expired())
             {
                 var heading = enemy.transform.position - this.transform.position;
                 var distance = heading.magnitude;
@@ -76,12 +105,10 @@ public class Item : MonoBehaviour {
                 enemy.bodyController.externalForces += (direction * 2f);
                 enemy.attackManager.UnFreezeIfHolding();
             }
-            else
-            {
-                enemy.switchTarget(this.gameObject);
-            }
         }
     }
+
+
 
     public void finish()
     {
