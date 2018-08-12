@@ -23,6 +23,7 @@ public class BodyController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        controller.detectCollisions = false;
     }
 
     // Update is called once per frame
@@ -111,7 +112,7 @@ public class BodyController : MonoBehaviour
 
     public void Ragdoll()
     {
-        //GetComponent<CharacterController>().transform.position = new Vector3(0, -50, 0);
+        
         foreach (Collider collider in this.GetComponentsInChildren<Collider>())
         {
             collider.isTrigger = false;
@@ -123,7 +124,7 @@ public class BodyController : MonoBehaviour
         }
         GetComponent<AgentMovementController>().enabled = false;
         GetComponent<Animator>().enabled = false;
-        GetComponent<CharacterController>().enabled = false;
+        controller.enabled = false;
         
 
         this.enabled = false;

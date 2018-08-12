@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        //bodyController.Ragdoll();	
 	}
 
     bool playerInSight()
@@ -60,8 +60,14 @@ public class Enemy : MonoBehaviour {
 
         if (health.currentHealth <= 0)
         {
-            Destroy(this.gameObject);
-            //bodyController.Ragdoll();
+            //Destroy(this.gameObject);
+            foreach(Rigidbody body in GetComponentsInChildren<Rigidbody>())
+            {
+                body.velocity = Vector3.zero;
+                body.angularVelocity = Vector3.zero;
+            }
+            
+            bodyController.Ragdoll();
             // If we just died, also make it look like enemy was shot
             //Vector3 hitDirection = Vector3.Normalize(bodyPart.transform.position - arrow.transform.position);
             //bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * arrow.transform.GetComponent<Rigidbody>().velocity.magnitude;

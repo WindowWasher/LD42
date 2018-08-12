@@ -116,10 +116,12 @@ public class Arrow : MonoBehaviour {
         GameObject newObj = new GameObject();
         this.transform.parent = newObj.transform;
         newObj.transform.parent = other.transform;
+        //newObj.transform.parent = other.GetComponentInParent<Enemy>().GetComponentInChildren<EnemyBodyPart>().gameObject.transform;
 
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         this.GetComponent<Rigidbody>().useGravity = false;
+        this.GetComponent<Rigidbody>().isKinematic = true;
         //this.transform.parent = other.transform;
         this.GetComponent<CapsuleCollider>().enabled = false;
 
