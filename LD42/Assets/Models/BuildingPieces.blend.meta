@@ -73,6 +73,7 @@ ModelImporter:
     100134: WoodBarricade1
     100136: WoodBarricade2
     100138: WoodBarricade3
+    100140: BonFire
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -143,6 +144,7 @@ ModelImporter:
     400134: WoodBarricade1
     400136: WoodBarricade2
     400138: WoodBarricade3
+    400140: BonFire
     2100000: unnamed
     2100002: Metal
     2100004: CreateEdge
@@ -224,6 +226,7 @@ ModelImporter:
     2300132: WoodBarricade1
     2300134: WoodBarricade2
     2300136: WoodBarricade3
+    2300138: BonFire
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -293,6 +296,7 @@ ModelImporter:
     3300132: WoodBarricade1
     3300134: WoodBarricade2
     3300136: WoodBarricade3
+    3300138: BonFire
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -361,6 +365,7 @@ ModelImporter:
     4300130: MetalBarricade3
     4300132: MetalBarricade2
     4300134: MetalBarricade1
+    4300136: BonFire
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
