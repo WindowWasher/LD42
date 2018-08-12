@@ -55,8 +55,12 @@ public class Enemy : MonoBehaviour {
         Health health = GetComponent<Health>();
         if (health.currentHealth <= 0)
             return;
-
+        bool headHit = (bodyPart.gameObject.name == "HeadBone");
         health.TakeDamage(arrow.damage);
+        if(headHit)
+        {
+            health.TakeDamage(arrow.damage * 10);
+        }
 
         if (health.currentHealth <= 0)
         {
@@ -69,9 +73,13 @@ public class Enemy : MonoBehaviour {
             
             bodyController.Ragdoll();
             // If we just died, also make it look like enemy was shot
-            //Vector3 hitDirection = Vector3.Normalize(bodyPart.transform.position - arrow.transform.position);
-            //bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * arrow.transform.GetComponent<Rigidbody>().velocity.magnitude;
-            //Debug.Log("Hit in " + this.name + " for velocity " + bodyPart.GetComponent<Rigidbody>().velocity);
+            if(headHit)
+            {
+                Vector3 hitDirection = Vector3.Normalize(bodyPart.transform.position - arrow.transform.position);
+                bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * arrow.transform.GetComponent<Rigidbody>().velocity.magnitude * 0.75f;
+                Debug.Log("Hit in " + this.name + " for velocity " + bodyPart.GetComponent<Rigidbody>().velocity);
+            }
+
         }
     }
 }
