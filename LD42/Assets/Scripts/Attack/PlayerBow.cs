@@ -42,7 +42,7 @@ public class PlayerBow : MonoBehaviour {
         playerArrow = GameObject.Find("PlayerArrow");
         playerAnimator = GameObject.Find("PlayerModel").GetComponent<Animator>();
         arrowModel = GameObject.Find("ArrowModel");
-        arrowModelDisplay = GameObject.Find("Cylinder");
+        arrowModelDisplay = GameObject.Find("ArrowModelDisplay");
         playerArrowAnimator = arrowModel.GetComponent<Animator>();
 
         //arrowModel = GameObject.Find("ArrowModel");
