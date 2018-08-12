@@ -50,6 +50,9 @@ ModelImporter:
     100088: RailingShortNoEnds
     100090: HalfWall_001
     100092: Ramp
+    100094: MetalSupport
+    100096: Ramp_001
+    100098: WallWithDoor
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -97,6 +100,9 @@ ModelImporter:
     400088: RailingShortNoEnds
     400090: HalfWall_001
     400092: Ramp
+    400094: MetalSupport
+    400096: Ramp_001
+    400098: WallWithDoor
     2100000: unnamed
     2100002: Metal
     2100004: CreateEdge
@@ -108,6 +114,7 @@ ModelImporter:
     2100016: Wood
     2100018: Concrete
     2100020: CrateEdge
+    2100022: Floor
     2300000: //RootNode
     2300002: Cube
     2300004: Cube_001
@@ -154,6 +161,9 @@ ModelImporter:
     2300086: RailingShortNoEnds
     2300088: HalfWall_001
     2300090: Ramp
+    2300092: MetalSupport
+    2300094: Ramp_001
+    2300096: WallWithDoor
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -200,6 +210,9 @@ ModelImporter:
     3300086: RailingShortNoEnds
     3300088: HalfWall_001
     3300090: Ramp
+    3300092: MetalSupport
+    3300094: Ramp_001
+    3300096: WallWithDoor
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -245,6 +258,9 @@ ModelImporter:
     4300084: Platform
     4300086: HalfWall_001
     4300088: Ramp
+    4300090: MetalSupport
+    4300092: Ramp_001
+    4300094: WallWithDoor
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
