@@ -62,8 +62,12 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Death!!!!");
-        Destroy(gameObject);
+        //Debug.Log("Death!!!!");
+        //Destroy(gameObject);
+        //if(this.GetComponent<Enemy>() != null)
+        //{
+        //    this.GetComponent<BodyController>().Ragdoll();
+        //}
     }
 }
 

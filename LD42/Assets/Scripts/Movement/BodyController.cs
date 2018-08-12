@@ -111,6 +111,7 @@ public class BodyController : MonoBehaviour
 
     public void Ragdoll()
     {
+        //GetComponent<CharacterController>().transform.position = new Vector3(0, -50, 0);
         foreach (Collider collider in this.GetComponentsInChildren<Collider>())
         {
             collider.isTrigger = false;
@@ -123,6 +124,7 @@ public class BodyController : MonoBehaviour
         GetComponent<AgentMovementController>().enabled = false;
         GetComponent<Animator>().enabled = false;
         GetComponent<CharacterController>().enabled = false;
+        
 
         this.enabled = false;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    private BodyController bodyController;
+    public BodyController bodyController;
     private AgentMovementController agentController;
     private AttackManager attackManager;
     private Animator animator;
@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour {
         animator = GetComponent<Animator>();
 
         animator.speed = 0.25f;
-
 
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
         agentController.SetBehavior(followPlayerOnSight);
@@ -49,5 +48,24 @@ public class Enemy : MonoBehaviour {
         Vector3 direction = player.transform.position - rayOrigin;
 
         return Physics.Raycast(rayOrigin, direction, out hit, sightRange);
+    }
+
+    public void HitWithArrow(EnemyBodyPart bodyPart, Arrow arrow)
+    {
+        Health health = GetComponent<Health>();
+        if (health.currentHealth <= 0)
+            return;
+
+        health.TakeDamage(arrow.damage);
+
+        if (health.currentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+            //bodyController.Ragdoll();
+            // If we just died, also make it look like enemy was shot
+            //Vector3 hitDirection = Vector3.Normalize(bodyPart.transform.position - arrow.transform.position);
+            //bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * arrow.transform.GetComponent<Rigidbody>().velocity.magnitude;
+            //Debug.Log("Hit in " + this.name + " for velocity " + bodyPart.GetComponent<Rigidbody>().velocity);
+        }
     }
 }

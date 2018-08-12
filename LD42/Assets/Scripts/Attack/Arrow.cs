@@ -13,8 +13,8 @@ public class Arrow : MonoBehaviour {
 
     private Timer deathTimer = null;
 
-    private float force = 3000f;
-    private int damage = 10;
+    private float force = 300000f;
+    public int damage = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -67,8 +67,8 @@ public class Arrow : MonoBehaviour {
 
         direction = Vector3.Normalize(targetPosition - transform.position);
 
-        Debug.DrawRay(this.transform.position, direction, Color.blue);
-        Debug.Log("Direction: " + direction.ToString());
+        //Debug.DrawRay(this.transform.position, direction, Color.blue);
+        //Debug.Log("Direction: " + direction.ToString());
 
         //this.transform.forward = direction;
 
@@ -93,7 +93,18 @@ public class Arrow : MonoBehaviour {
 
         if (otherHealth != null)
         {
-            otherHealth.TakeDamage(damage);
+            Enemy enemy = other.GetComponentInParent<Enemy>();
+            EnemyBodyPart enemyPart = other.GetComponent<EnemyBodyPart>();
+            if (enemy != null && enemyPart == null)
+                return;
+            //if(enemy != null && enemyPart != null)
+            //{
+                enemy.HitWithArrow(other.GetComponent<EnemyBodyPart>(), this);
+            //}
+            //else {
+            //    otherHealth.TakeDamage(damage);
+            //}
+            
         }
         else
         {
