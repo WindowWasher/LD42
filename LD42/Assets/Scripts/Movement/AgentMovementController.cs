@@ -35,7 +35,7 @@ public class AgentMovementController : MonoBehaviour
     private void initAgent()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = bodyController.speed * 0.5f;
+        agent.speed = bodyController.speed * 0.25f;
         //agent.speed = 0f;
         // setting a higher acceleration helps the agent rotate faster
         agent.acceleration = bodyController.speed *= 2;
