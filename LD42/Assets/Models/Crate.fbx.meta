@@ -1,15 +1,17 @@
 fileFormatVersion: 2
-guid: 99e2b57360de5fe45b567ad0abc56397
+guid: dffcea7229d6c734692924153fbc88ff
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
-    2100002: Wall
+    2100002: CreateEdge
+    2100004: CrateBox
+    2100006: CrateEdge
     2300000: //RootNode
     3300000: //RootNode
-    4300000: HalfWall
+    4300000: Crate
   externalObjects: {}
   materials:
     importMaterials: 1

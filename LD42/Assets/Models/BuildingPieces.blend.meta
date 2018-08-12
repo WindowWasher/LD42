@@ -12,6 +12,32 @@ ModelImporter:
     100012: HalfWall
     100014: HugeWall
     100016: LargeWall
+    100018: CorrugatedMetal
+    100020: Crate
+    100022: MedPack
+    100024: Barrel
+    100026: Wood1
+    100028: Wood2
+    100030: WoodPile1
+    100032: Metal1
+    100034: Metal2
+    100036: MetalPile
+    100038: Concrete
+    100040: Concrete_003
+    100042: Concrete_004
+    100044: Concrete_005
+    100046: Cylinder_001
+    100048: ConcreteRubble
+    100050: ConcreteRubble1
+    100052: ConcreteRubble2
+    100054: ConcreteRubble3
+    100056: Pipe1
+    100058: Pipe2
+    100060: Pipe3
+    100062: Column
+    100064: ConcreteFloor
+    100066: ColumnBroken
+    100068: ColumnBroken2
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -21,7 +47,43 @@ ModelImporter:
     400012: HalfWall
     400014: HugeWall
     400016: LargeWall
+    400018: CorrugatedMetal
+    400020: Crate
+    400022: MedPack
+    400024: Barrel
+    400026: Wood1
+    400028: Wood2
+    400030: WoodPile1
+    400032: Metal1
+    400034: Metal2
+    400036: MetalPile
+    400038: Concrete
+    400040: Concrete_003
+    400042: Concrete_004
+    400044: Concrete_005
+    400046: Cylinder_001
+    400048: ConcreteRubble
+    400050: ConcreteRubble1
+    400052: ConcreteRubble2
+    400054: ConcreteRubble3
+    400056: Pipe1
+    400058: Pipe2
+    400060: Pipe3
+    400062: Column
+    400064: ConcreteFloor
+    400066: ColumnBroken
+    400068: ColumnBroken2
     2100000: unnamed
+    2100002: Metal
+    2100004: CreateEdge
+    2100006: CrateBox
+    2100008: Wall
+    2100010: MedPackBox
+    2100012: CrossRed
+    2100014: BarrelBlack
+    2100016: Wood
+    2100018: Concrete
+    2100020: CrateEdge
     2300000: //RootNode
     2300002: Cube
     2300004: Cube_001
@@ -30,6 +92,32 @@ ModelImporter:
     2300010: HalfWall
     2300012: HugeWall
     2300014: LargeWall
+    2300016: CorrugatedMetal
+    2300018: Crate
+    2300020: MedPack
+    2300022: Barrel
+    2300024: Wood1
+    2300026: Wood2
+    2300028: WoodPile1
+    2300030: Metal1
+    2300032: Metal2
+    2300034: MetalPile
+    2300036: Concrete
+    2300038: Concrete_003
+    2300040: Concrete_004
+    2300042: Concrete_005
+    2300044: Cylinder_001
+    2300046: ConcreteRubble
+    2300048: ConcreteRubble1
+    2300050: ConcreteRubble2
+    2300052: ConcreteRubble3
+    2300054: Pipe1
+    2300056: Pipe2
+    2300058: Pipe3
+    2300060: Column
+    2300062: ConcreteFloor
+    2300064: ColumnBroken
+    2300066: ColumnBroken2
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -38,6 +126,32 @@ ModelImporter:
     3300010: HalfWall
     3300012: HugeWall
     3300014: LargeWall
+    3300016: CorrugatedMetal
+    3300018: Crate
+    3300020: MedPack
+    3300022: Barrel
+    3300024: Wood1
+    3300026: Wood2
+    3300028: WoodPile1
+    3300030: Metal1
+    3300032: Metal2
+    3300034: MetalPile
+    3300036: Concrete
+    3300038: Concrete_003
+    3300040: Concrete_004
+    3300042: Concrete_005
+    3300044: Cylinder_001
+    3300046: ConcreteRubble
+    3300048: ConcreteRubble1
+    3300050: ConcreteRubble2
+    3300052: ConcreteRubble3
+    3300054: Pipe1
+    3300056: Pipe2
+    3300058: Pipe3
+    3300060: Column
+    3300062: ConcreteFloor
+    3300064: ColumnBroken
+    3300066: ColumnBroken2
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -45,6 +159,32 @@ ModelImporter:
     4300008: HalfWall
     4300010: HugeWall
     4300012: LargeWall
+    4300014: CorrugatedMetal
+    4300016: Crate
+    4300018: MedPack
+    4300020: Barrel
+    4300022: Wood1
+    4300024: Wood2
+    4300026: WoodPile1
+    4300028: Metal1
+    4300030: Metal2
+    4300032: MetalPile
+    4300034: Concrete_005
+    4300036: Cylinder_001
+    4300038: Concrete_004
+    4300040: Concrete_003
+    4300042: Concrete
+    4300044: ConcreteRubble
+    4300046: Pipe3
+    4300048: Pipe2
+    4300050: Pipe1
+    4300052: ConcreteRubble3
+    4300054: ConcreteRubble1
+    4300056: ConcreteRubble2
+    4300058: Column
+    4300060: ConcreteFloor
+    4300062: ColumnBroken
+    4300064: ColumnBroken2
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
