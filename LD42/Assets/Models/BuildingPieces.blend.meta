@@ -53,6 +53,16 @@ ModelImporter:
     100094: MetalSupport
     100096: Ramp_001
     100098: WallWithDoor
+    100100: HalfWallBroken
+    100102: HalfWallBrokenDebris
+    100104: HugeWallBroken
+    100106: LargeWallBroken
+    100108: WallBroken
+    100110: WallBrokenDebris
+    100112: WallWithDoorBroken
+    100114: WallBroken2
+    100116: WallBroken3
+    100118: Wallbroken4
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -103,6 +113,16 @@ ModelImporter:
     400094: MetalSupport
     400096: Ramp_001
     400098: WallWithDoor
+    400100: HalfWallBroken
+    400102: HalfWallBrokenDebris
+    400104: HugeWallBroken
+    400106: LargeWallBroken
+    400108: WallBroken
+    400110: WallBrokenDebris
+    400112: WallWithDoorBroken
+    400114: WallBroken2
+    400116: WallBroken3
+    400118: Wallbroken4
     2100000: unnamed
     2100002: Metal
     2100004: CreateEdge
@@ -164,6 +184,16 @@ ModelImporter:
     2300092: MetalSupport
     2300094: Ramp_001
     2300096: WallWithDoor
+    2300098: HalfWallBroken
+    2300100: HalfWallBrokenDebris
+    2300102: HugeWallBroken
+    2300104: LargeWallBroken
+    2300106: WallBroken
+    2300108: WallBrokenDebris
+    2300110: WallWithDoorBroken
+    2300112: WallBroken2
+    2300114: WallBroken3
+    2300116: Wallbroken4
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -213,6 +243,16 @@ ModelImporter:
     3300092: MetalSupport
     3300094: Ramp_001
     3300096: WallWithDoor
+    3300098: HalfWallBroken
+    3300100: HalfWallBrokenDebris
+    3300102: HugeWallBroken
+    3300104: LargeWallBroken
+    3300106: WallBroken
+    3300108: WallBrokenDebris
+    3300110: WallWithDoorBroken
+    3300112: WallBroken2
+    3300114: WallBroken3
+    3300116: Wallbroken4
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -261,8 +301,19 @@ ModelImporter:
     4300090: MetalSupport
     4300092: Ramp_001
     4300094: WallWithDoor
+    4300096: WallBrokenDebris
+    4300098: HalfWallBrokenDebris
+    4300100: WallBroken
+    4300102: WallWithDoorBroken
+    4300104: HalfWallBroken
+    4300106: LargeWallBroken
+    4300108: HugeWallBroken
+    4300110: WallBroken3
+    4300112: WallBroken2
+    4300114: Wallbroken4
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff6703b817a270a418f0987e3279d4c5
+guid: ba2d7eb987c4c324b9b76f1955d4bfaa
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -8,7 +8,8 @@ ModelImporter:
     2100000: Wall
     2300000: //RootNode
     3300000: //RootNode
-    4300000: HalfWall.001
+    4300000: WallBroken2
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
