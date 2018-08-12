@@ -63,6 +63,10 @@ ModelImporter:
     100114: WallBroken2
     100116: WallBroken3
     100118: Wallbroken4
+    100120: HalfWallChipped
+    100122: LargeWallChipped
+    100124: WallChipped
+    100126: WallWithDoorChipped
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -123,6 +127,10 @@ ModelImporter:
     400114: WallBroken2
     400116: WallBroken3
     400118: Wallbroken4
+    400120: HalfWallChipped
+    400122: LargeWallChipped
+    400124: WallChipped
+    400126: WallWithDoorChipped
     2100000: unnamed
     2100002: Metal
     2100004: CreateEdge
@@ -194,6 +202,10 @@ ModelImporter:
     2300112: WallBroken2
     2300114: WallBroken3
     2300116: Wallbroken4
+    2300118: HalfWallChipped
+    2300120: LargeWallChipped
+    2300122: WallChipped
+    2300124: WallWithDoorChipped
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -253,6 +265,10 @@ ModelImporter:
     3300112: WallBroken2
     3300114: WallBroken3
     3300116: Wallbroken4
+    3300118: HalfWallChipped
+    3300120: LargeWallChipped
+    3300122: WallChipped
+    3300124: WallWithDoorChipped
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -311,6 +327,10 @@ ModelImporter:
     4300110: WallBroken3
     4300112: WallBroken2
     4300114: Wallbroken4
+    4300116: WallChipped
+    4300118: WallWithDoorChipped
+    4300120: HalfWallChipped
+    4300122: LargeWallChipped
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
