@@ -67,6 +67,12 @@ ModelImporter:
     100122: LargeWallChipped
     100124: WallChipped
     100126: WallWithDoorChipped
+    100128: MetalBarricade1
+    100130: MetalBarricade2
+    100132: MetalBarricade3
+    100134: WoodBarricade1
+    100136: WoodBarricade2
+    100138: WoodBarricade3
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -131,6 +137,12 @@ ModelImporter:
     400122: LargeWallChipped
     400124: WallChipped
     400126: WallWithDoorChipped
+    400128: MetalBarricade1
+    400130: MetalBarricade2
+    400132: MetalBarricade3
+    400134: WoodBarricade1
+    400136: WoodBarricade2
+    400138: WoodBarricade3
     2100000: unnamed
     2100002: Metal
     2100004: CreateEdge
@@ -206,6 +218,12 @@ ModelImporter:
     2300120: LargeWallChipped
     2300122: WallChipped
     2300124: WallWithDoorChipped
+    2300126: MetalBarricade1
+    2300128: MetalBarricade2
+    2300130: MetalBarricade3
+    2300132: WoodBarricade1
+    2300134: WoodBarricade2
+    2300136: WoodBarricade3
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -269,6 +287,12 @@ ModelImporter:
     3300120: LargeWallChipped
     3300122: WallChipped
     3300124: WallWithDoorChipped
+    3300126: MetalBarricade1
+    3300128: MetalBarricade2
+    3300130: MetalBarricade3
+    3300132: WoodBarricade1
+    3300134: WoodBarricade2
+    3300136: WoodBarricade3
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -331,6 +355,12 @@ ModelImporter:
     4300118: WallWithDoorChipped
     4300120: HalfWallChipped
     4300122: LargeWallChipped
+    4300124: WoodBarricade3
+    4300126: WoodBarricade2
+    4300128: WoodBarricade1
+    4300130: MetalBarricade3
+    4300132: MetalBarricade2
+    4300134: MetalBarricade1
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
