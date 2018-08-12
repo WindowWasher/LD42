@@ -95,11 +95,11 @@ public class Arrow : MonoBehaviour {
         {
             Enemy enemy = other.GetComponentInParent<Enemy>();
             EnemyBodyPart enemyPart = other.GetComponent<EnemyBodyPart>();
-            if (enemy != null && enemyPart == null)
+            if (enemy == null || enemyPart == null)
                 return;
             //if(enemy != null && enemyPart != null)
             //{
-                enemy.HitWithArrow(other.GetComponent<EnemyBodyPart>(), this);
+                enemy.HitWithArrow(enemyPart, this);
             //}
             //else {
             //    otherHealth.TakeDamage(damage);

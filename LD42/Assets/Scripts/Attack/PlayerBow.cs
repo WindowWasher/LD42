@@ -36,6 +36,8 @@ public class PlayerBow : MonoBehaviour {
     private Timer drawTimer = new Timer();
     public bool aiming = false;
 
+    private PlayerInventory playerInventory;
+
     // Use this for initialization
     void Start () {
 
@@ -45,6 +47,8 @@ public class PlayerBow : MonoBehaviour {
         arrowModelDisplay = GameObject.Find("ArrowModelDisplay");
         playerArrowAnimator = arrowModel.GetComponent<Animator>();
 
+        playerInventory = GetComponent<PlayerInventory>();
+
         //arrowModel = GameObject.Find("ArrowModel");
 
         playerAnimator.speed = 0.25f;
@@ -53,12 +57,18 @@ public class PlayerBow : MonoBehaviour {
         playerArrow.SetActive(false);
 
     }
+
+    public void SteadyBow()
+    {
+        arrowModel.SetActive(true);
+        startBowAnimation("PlayerSteadyBowBlendTree");
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
 
-        if (Input.GetButton("Fire1") && aimTimer.Expired() && !aiming)
+        if (Input.GetButton("Fire1") && aimTimer.Expired() && !aiming && playerInventory.heldItem == null)
         {
             //playerAnimator.Play("PlayerFireBowBlendTree");
             //playerArrowAnimator.Play("PlayerFireBowBlendTree");
@@ -67,7 +77,7 @@ public class PlayerBow : MonoBehaviour {
             startBowAnimation("PlayerAimBlendTree");
         }
 
-        if(Input.GetButtonUp("Fire1") && aiming && drawTimer.Expired())
+        if(Input.GetButtonUp("Fire1") && aiming && drawTimer.Expired() && playerInventory.heldItem == null)
         {
             aiming = false;
             aimTimer.Start(1f);
@@ -103,7 +113,7 @@ public class PlayerBow : MonoBehaviour {
         playerArrowAnimator.Play(animationName);
     }
 
-    GameObject getTargetedObject()
+    public GameObject getTargetedObject()
     {
         //// rayOrigin is the center of the camera's screen (0.5f/0.5f) at the player (0)
         RaycastHit hit;
