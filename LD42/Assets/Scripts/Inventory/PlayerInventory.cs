@@ -117,8 +117,17 @@ public class PlayerInventory : MonoBehaviour {
         // TODO add attack?
         if(heldItem.isHealthPack)
         {
-            GetComponent<Health>().HealDamage(heldItem.healAmount);
+            Health playerHealth = GetComponent<Health>();
+            if(playerHealth.currentHealth == playerHealth.MaxHealth)
+            {
+                return;
+            }
+            else
+            {
+                playerHealth.HealDamage(heldItem.healAmount);
+            }
             heldItem.finish();
+            playerBow.SteadyBow();
             heldItem = null;
         }
         else
@@ -129,6 +138,7 @@ public class PlayerInventory : MonoBehaviour {
             {
                 health.HealDamage(heldItem.healAmount);
                 heldItem.finish();
+                playerBow.SteadyBow();
                 heldItem = null;
             }
             else

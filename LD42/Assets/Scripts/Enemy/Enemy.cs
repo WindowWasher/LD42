@@ -73,10 +73,11 @@ public class Enemy : MonoBehaviour {
             
             bodyController.Ragdoll();
             // If we just died, also make it look like enemy was shot
-            if(headHit)
+            if(headHit || bodyPart.gameObject.name == "SpineBone")
             {
                 Vector3 hitDirection = Vector3.Normalize(bodyPart.transform.position - arrow.transform.position);
-                bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * arrow.transform.GetComponent<Rigidbody>().velocity.magnitude * 0.75f;
+                // bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * arrow.transform.GetComponent<Rigidbody>().velocity.magnitude * 0.9f;
+                bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * 50f;
                 Debug.Log("Hit in " + this.name + " for velocity " + bodyPart.GetComponent<Rigidbody>().velocity);
             }
 
