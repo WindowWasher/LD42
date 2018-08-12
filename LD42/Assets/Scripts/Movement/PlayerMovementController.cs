@@ -16,21 +16,36 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 smoothV;
     private Vector2 mouseLook;
 
-    private Animator playerAnimator;
+    //private Animator playerAnimator;
+    //private Animator playerArrowAnimator;
 
     //private Vector3 arrowOffset;
-    //private GameObject arrowObj;
+    //private GameObject arrowBone;
+    //private GameObject playerArrow;
+    //private Vector3 playerArrowOffset = new Vector3(0, 0, 1f);
     //private GameObject handObj;
+
+    //private GameObject arrowModel;
+    //private GameObject playerArrow;
 
     void Start()
     {
         bodyController = GetComponent<BodyController>();
-        playerAnimator = GetComponent<Animator>();
-        playerAnimator.speed = 0.25f;
+        //playerAnimator = GameObject.Find("PlayerModel").GetComponent<Animator>();
+        //arrowModel = GameObject.Find("ArrowModel");
+        //playerArrowAnimator = playerAnimator.GetComponent<Animator>();
+
+        //playerAnimator.speed = 0.25f;
+        //playerArrowAnimator.speed = 0.25f;
+        //playerArrow = GameObject.Find("PlayerArrow");
+        //playerArrow.SetActive(false);
         lockCursor();
 
         //handObj = GameObject.Find("Hand_R");
-        //arrowObj = GameObject.Find("PlayerArrow");
+        //arrowBone = GameObject.Find("ArrowBoneR");
+        
+
+
         //arrowOffset = handObj.transform.position - arrowObj.transform.position;
     }
 
@@ -83,10 +98,7 @@ public class PlayerMovementController : MonoBehaviour
         }
         cameraMove();
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            playerAnimator.Play("PlayerFireBowBlendTree");
-        }
+
 
         //if(Input.GetButtonUp("Fire1"))
         //{
@@ -96,10 +108,12 @@ public class PlayerMovementController : MonoBehaviour
         //updateArrowPosition();
     }
 
-    //private void updateArrowPosition()
-    //{
-    //    arrowObj.transform.position = handObj.transform.position - arrowOffset;
-    //}
+    private void updateArrowPosition()
+    {
+        //arrowObj.transform.position = handObj.transform.position - arrowOffset;
+        //playerArrow.transform.position = arrowBone.transform.position + playerArrowOffset;
+        //playerArrow.transform.localRotation = arrowBone.transform.localRotation;
+    }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
