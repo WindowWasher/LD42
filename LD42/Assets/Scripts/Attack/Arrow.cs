@@ -11,8 +11,15 @@ public class Arrow : MonoBehaviour {
     private Vector3 targetPosition;
     private Vector3 direction;
 
+    private Timer deathTimer = null;
+
+    private float force = 3000f;
+    private int damage = 10;
+
 	// Use this for initialization
 	void Start () {
+
+
 		
 	}
 	
@@ -28,6 +35,11 @@ public class Arrow : MonoBehaviour {
         //this.transform.Translate(this.transform.forward * Time.deltaTime * speed);
 
         //this.transform.Translate(direction * Time.deltaTime * speed);
+
+        if(deathTimer != null && deathTimer.Expired())
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void setTargetPosition(Vector3 startPosition, Vector3 targetPosition)
@@ -50,7 +62,7 @@ public class Arrow : MonoBehaviour {
         //bullet.transform.LookAt(targetPosition);
 
         var rb = this.GetComponent<Rigidbody>();
-        rb.AddForce(this.transform.forward * 3000);
+        rb.AddForce(this.transform.forward * force);
 
 
         direction = Vector3.Normalize(targetPosition - transform.position);
@@ -68,5 +80,39 @@ public class Arrow : MonoBehaviour {
 
         //var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         //cube.transform.position = targetPosition;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerLayer"))
+        {
+            return;
+        }
+
+        Health otherHealth = other.gameObject.GetComponentInParent<Health>();
+
+        if (otherHealth != null)
+        {
+            otherHealth.TakeDamage(damage);
+        }
+        else
+        {
+            deathTimer = new Timer();
+            deathTimer.Start(60f);
+        }
+
+        // do this to avoid scaling issues
+        GameObject newObj = new GameObject();
+        this.transform.parent = newObj.transform;
+        newObj.transform.parent = other.transform;
+
+        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        this.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        this.GetComponent<Rigidbody>().useGravity = false;
+        //this.transform.parent = other.transform;
+        this.GetComponent<CapsuleCollider>().enabled = false;
+
+
+
     }
 }

@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   jumpSpeed: 3
-  rotationSpeed: 50
+  rotationSpeed: 30
   externalForces: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
 --- !u!114 &114594344797565874
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData:
   - {fileID: 11400000, guid: 2c9fc4a1dbdd3e146a708d9e2a5cfc92, type: 2}
-  meeleAttackRange: 1.5
+  meeleAttackRange: 1.6
 --- !u!114 &114611162763544522
 MonoBehaviour:
   m_ObjectHideFlags: 1
