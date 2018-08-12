@@ -13,13 +13,15 @@ public class Arrow : MonoBehaviour {
 
     private Timer deathTimer = null;
 
+    private Timer noHitTimer = new Timer();
+
     private float force = 3000f;
     public int damage = 10;
 
 	// Use this for initialization
 	void Start () {
 
-
+        noHitTimer.Start(30f);
 		
 	}
 	
@@ -38,6 +40,12 @@ public class Arrow : MonoBehaviour {
 
         if(deathTimer != null && deathTimer.Expired())
         {
+            Destroy(this.gameObject);
+        }
+
+        if(noHitTimer != null && noHitTimer.Expired())
+        {
+            // We never hit anything
             Destroy(this.gameObject);
         }
     }
@@ -91,6 +99,8 @@ public class Arrow : MonoBehaviour {
         {
             return;
         }
+
+        noHitTimer = null;
 
         Debug.Log("Hit: " + other.gameObject.name);
 
