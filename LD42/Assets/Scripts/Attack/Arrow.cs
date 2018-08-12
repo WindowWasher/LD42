@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
 
-    private float speed = 10f;
+    private float speed = 50f;
 
     private Vector3 targetPosition;
     private Vector3 direction;
@@ -18,21 +18,22 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.LookAt(targetPosition);
+        //this.transform.LookAt(targetPosition);
         //this.transform.Translate(this.transform.forward * Time.deltaTime * speed);
-        float step = speed * Time.deltaTime;
+        //float step = speed * Time.deltaTime;
 
         // Move our position a step closer to the target.
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+        //transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
         //this.transform.Translate(this.transform.forward * Time.deltaTime * speed);
 
         //this.transform.Translate(direction * Time.deltaTime * speed);
     }
 
-    public void setTargetPosition(Vector3 targetPosition)
+    public void setTargetPosition(Vector3 startPosition, Vector3 targetPosition)
     {
         //this.gameObject.transform.LookAt(targetPosition);
+
         this.targetPosition = targetPosition;
 
         //this.transform.position = Vector3.zero;
@@ -40,9 +41,16 @@ public class Arrow : MonoBehaviour {
         this.transform.rotation = Quaternion.identity;
         this.transform.localRotation = Quaternion.identity;
         this.transform.localScale = new Vector3(1, 1, 1);
-       
+        this.transform.position = startPosition;
+
 
         this.transform.LookAt(targetPosition);
+
+        //this.transform.position = startPosition;
+        //bullet.transform.LookAt(targetPosition);
+
+        var rb = this.GetComponent<Rigidbody>();
+        rb.AddForce(this.transform.forward * 3000);
 
 
         direction = Vector3.Normalize(targetPosition - transform.position);

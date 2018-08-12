@@ -32,6 +32,10 @@ public class PlayerBow : MonoBehaviour {
     private Timer arrowReloadTimer = null;
     private float arrowReloadSpeed = 0.75f;
 
+    private Timer aimTimer = new Timer();
+    private Timer drawTimer = new Timer();
+    public bool aiming = false;
+
     // Use this for initialization
     void Start () {
 
@@ -53,20 +57,20 @@ public class PlayerBow : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonDown("Fire1"))
+
+        if (Input.GetButton("Fire1") && aimTimer.Expired() && !aiming)
         {
             //playerAnimator.Play("PlayerFireBowBlendTree");
             //playerArrowAnimator.Play("PlayerFireBowBlendTree");
-           
-
+            aiming = true;
+            drawTimer.Start(0.25f);
             startBowAnimation("PlayerAimBlendTree");
-
-           
-
         }
 
-        if(Input.GetButtonUp("Fire1"))
+        if(Input.GetButtonUp("Fire1") && aiming && drawTimer.Expired())
         {
+            aiming = false;
+            aimTimer.Start(1f);
             startBowAnimation("PlayerFireBowBlendTree");
 
             //GameObject newArrow = GameObject.Instantiate(playerArrow, playerArrow.transform.position, playerArrow.transform.rotation);
@@ -76,10 +80,10 @@ public class PlayerBow : MonoBehaviour {
 
             //newArrow.transform.rotation = Quaternion.identity;
             //newArrow.transform.localRotation = Quaternion.identity;
-            newArrow.transform.position = playerArrow.transform.position;
+            //newArrow.transform.position = playerArrow.transform.position;
             newArrow.SetActive(true);
             newArrow.AddComponent<Arrow>();
-            newArrow.GetComponent<Arrow>().setTargetPosition(getTargetPosition());
+            newArrow.GetComponent<Arrow>().setTargetPosition(playerArrow.transform.position, getTargetPosition());
 
             arrowModelDisplay.SetActive(false);
             arrowReloadTimer = new Timer();
@@ -146,6 +150,11 @@ public class PlayerBow : MonoBehaviour {
             else
             {
                 targetPosition = hit.point;
+
+                //var heading = targetPosition - getCameraWorldPoint();
+                //var distance2 = heading.magnitude;
+                //var direction2 = heading / distance2; //
+                //targetPosition = direction2 * defaulAimtDistance;
             }
         }
         else
