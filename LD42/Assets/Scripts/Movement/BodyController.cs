@@ -75,9 +75,9 @@ public class BodyController : MonoBehaviour
         float maxExternalForce = 3f;
         if (Mathf.Abs(externalForces.x) > maxExternalForce)
         {
-            Ragdoll();
-            return;
-            //externalForces = PhysicUtil.SetVector(externalForces, x: maxExternalForce * (externalForces.x > 0 ? 1 : -1));
+            //Ragdoll();
+            //return;
+            externalForces.x = maxExternalForce * (externalForces.x > 0 ? 1 : -1);
         }
         if (Mathf.Abs(externalForces.x) <= externalFrameReduction)
         {
@@ -96,8 +96,10 @@ public class BodyController : MonoBehaviour
 
         if (Mathf.Abs(externalForces.z) > maxExternalForce)
         {
-            Ragdoll();
-            return;
+            //Ragdoll();
+            //return;
+            externalForces.z = maxExternalForce * (externalForces.z > 0 ? 1 : -1);
+
         }
 
         if (Mathf.Abs(externalForces.z) <= externalFrameReduction)

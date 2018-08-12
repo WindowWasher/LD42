@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
 
     private bool isAlive = true;
 
+    public bool playerCanFix = false;
+
     void Start()
     {
         currentHealth = MaxHealth;
