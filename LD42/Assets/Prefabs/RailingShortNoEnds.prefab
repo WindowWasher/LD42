@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23833071974523356}
   m_Layer: 0
   m_Name: RailingShortNoEnds
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

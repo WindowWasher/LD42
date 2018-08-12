@@ -36,6 +36,10 @@ public class PlayerBow : MonoBehaviour {
     private Timer drawTimer = new Timer();
     public bool aiming = false;
 
+
+    public AudioSource bowDrawSound;
+    public AudioSource arrowFireSound;
+
     private PlayerInventory playerInventory;
 
     // Use this for initialization
@@ -75,6 +79,9 @@ public class PlayerBow : MonoBehaviour {
             aiming = true;
             drawTimer.Start(0.25f);
             startBowAnimation("PlayerAimBlendTree");
+
+            if (bowDrawSound && !bowDrawSound.isPlaying)
+                bowDrawSound.Play();
         }
 
         if(Input.GetButtonUp("Fire1") && aiming && drawTimer.Expired() && playerInventory.heldItem == null)
@@ -98,6 +105,9 @@ public class PlayerBow : MonoBehaviour {
             arrowModelDisplay.SetActive(false);
             arrowReloadTimer = new Timer();
             arrowReloadTimer.Start(arrowReloadSpeed);
+
+            if (arrowFireSound && !arrowFireSound.isPlaying)
+                arrowFireSound.Play();
         }
 
         if(arrowReloadTimer != null && arrowReloadTimer.Expired())

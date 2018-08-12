@@ -8,6 +8,7 @@ TagManager:
   - Wood
   - Metal
   - Concrete
+  - Wall
   layers:
   - Default
   - TransparentFX
