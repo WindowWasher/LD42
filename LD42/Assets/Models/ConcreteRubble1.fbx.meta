@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: 99e2b57360de5fe45b567ad0abc56397
+guid: b1b7fa99c8d8457479a623326a2f109a
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
-    2100002: Wall
+    2100000: Concrete
     2300000: //RootNode
     3300000: //RootNode
-    4300000: HalfWall
+    4300000: ConcreteRubble1
   externalObjects: {}
   materials:
     importMaterials: 1
