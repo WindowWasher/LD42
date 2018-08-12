@@ -9,11 +9,35 @@ public class EnemyBodyPart : MonoBehaviour
     /// </summary>
     Enemy enemy;
 
+    public GameObject jointBodyObj;
+    public bool hasRigidBody;
+
     // Use this for initialization
     void Start()
     {
         this.enemy = this.GetComponentInParent<Enemy>();
         IgnoreLocalCollisions();
+
+        //GetComponent<Rigidbody>().isKinematic = true;
+        //Destroy(this.GetComponent<CharacterJoint>());
+        //Destroy(this.GetComponent<Rigidbody>());
+
+        CharacterJoint joint = this.GetComponent<CharacterJoint>();
+        Rigidbody body = this.GetComponent<Rigidbody>();
+
+        if(joint != null)
+        {
+            jointBodyObj = joint.connectedBody.gameObject;
+            Destroy(this.GetComponent<CharacterJoint>());
+        }
+        if(body != null)
+        {
+            hasRigidBody = true;
+            Destroy(this.GetComponent<Rigidbody>());
+        }
+
+
+        this.GetComponent<Collider>().isTrigger = true;
 
     }
 

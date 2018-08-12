@@ -19,10 +19,11 @@ public class AgentMovementController : MonoBehaviour
         bodyController = GetComponent<BodyController>();
         initAgent();
         attackManager = GetComponent<AttackManager>();
+        //Destroy(this.GetComponent<CharacterController>());
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (movementBehavior != null)
         {
@@ -35,11 +36,14 @@ public class AgentMovementController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = bodyController.speed;
+        //agent.speed = 0f;
         // setting a higher acceleration helps the agent rotate faster
         agent.acceleration = bodyController.speed *= 2;
         agent.autoBraking = true;
-        agent.updatePosition = false;
-        agent.updateRotation = false;
+        //agent.updatePosition = false;
+        //agent.updateRotation = false;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
     }
 
     Vector3 getNextPosition()
@@ -52,10 +56,11 @@ public class AgentMovementController : MonoBehaviour
     void moveTowardsTarget()
     {
         Vector3 directionToTarget = bodyController.getDirectionToTarget(getNextPosition());
-        if(attackManager.currentAttack == null || attackManager.findTargetInRange(attackManager.currentAttack) == null)
-        {
-            bodyController.moveInDirection(directionToTarget);
-        }
+        //if(attackManager.currentAttack == null || attackManager.findTargetInRange(attackManager.currentAttack) == null)
+        //{
+        //    //bodyController.moveInDirection(directionToTarget);
+        //    //this.transform.Translate(directionToTarget * bodyController.speed * 10 * Time.deltaTime);
+        //}
         if (rotateOverride != null)
         {
             bodyController.lookInDirection(bodyController.getDirectionToTarget(rotateOverride.transform.position));
@@ -64,8 +69,15 @@ public class AgentMovementController : MonoBehaviour
         {
             bodyController.lookInDirection(directionToTarget);
         }
+
+        //if (attackManager.currentAttack == null || attackManager.findTargetInRange(attackManager.currentAttack) == null)
+        //{
+        //    //bodyController.moveInDirection(directionToTarget);
+        //    this.transform.Translate(this.transform.forward * bodyController.speed * 0.25f * Time.deltaTime);
+        //}
+
         // since the agent is not actively moving, we have to keep it updated to where it is
-        agent.nextPosition = this.transform.position;
+        //agent.nextPosition = this.transform.position;
     }
 
     public void SetBehavior(MovementBehavior behavior)
