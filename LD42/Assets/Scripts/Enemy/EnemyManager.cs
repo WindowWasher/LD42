@@ -11,7 +11,8 @@ public class EnemyManager : MonoBehaviour
     //public float waveSpawnRadius;
     //public Vector3 center;
 
-    float interval = 0f;
+    float interval = 30f;
+    int numberOfSpawnLocations = 3;
     public float localSpawnRadius;
 
     GameObject[] spawnPoints;
@@ -112,7 +113,7 @@ public class EnemyManager : MonoBehaviour
             rangeValues.Add(i);
         }
 
-        int numberOfSpawnLocations = 1;
+         numberOfSpawnLocations = 3;
         //int numberOfSpawnLocations = spawnPoints.Length;
         List<int> randomIndexes = new List<int>();
         for (int i = 0; i < numberOfSpawnLocations; i++)
