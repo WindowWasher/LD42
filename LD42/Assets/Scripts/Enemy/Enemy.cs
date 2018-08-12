@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour {
     public AttackBarrier attackBarrier;
     private float sightRange = 10f;
 
+    private Timer rightAfterDeathTimer = null;
+
 	// Use this for initialization
 	void Start () {
 
@@ -46,6 +48,11 @@ public class Enemy : MonoBehaviour {
         {
             // target just died, switch back to player
             agentController.SetBehavior(followPlayerOnSight);
+        }
+
+        if(rightAfterDeathTimer != null && rightAfterDeathTimer.Expired())
+        {
+            agentController.agent.enabled = false;
         }
     }
 
@@ -92,11 +99,13 @@ public class Enemy : MonoBehaviour {
             // If we just died, also make it look like enemy was shot
             if(headHit || bodyPart.gameObject.name == "SpineBone")
             {
-                Vector3 hitDirection = Vector3.Normalize(bodyPart.transform.position - arrow.transform.position);
+                Vector3 hitDirection = Vector3.Normalize(bodyPart.transform.position - arrow.transform.position) * -1;
                 // bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * arrow.transform.GetComponent<Rigidbody>().velocity.magnitude * 0.9f;
-                bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * 50f;
+                bodyPart.GetComponent<Rigidbody>().velocity = hitDirection * 10f;
                 Debug.Log("Hit in " + this.name + " for velocity " + bodyPart.GetComponent<Rigidbody>().velocity);
             }
+            rightAfterDeathTimer = new Timer();
+            rightAfterDeathTimer.Start(5f);
 
         }
     }

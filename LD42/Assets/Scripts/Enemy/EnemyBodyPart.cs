@@ -33,7 +33,8 @@ public class EnemyBodyPart : MonoBehaviour
         if(body != null)
         {
             hasRigidBody = true;
-            Destroy(this.GetComponent<Rigidbody>());
+            //Destroy(this.GetComponent<Rigidbody>());
+            this.GetComponent<Rigidbody>().isKinematic = true;
         }
 
 
@@ -60,6 +61,82 @@ public class EnemyBodyPart : MonoBehaviour
         //Physics.IgnoreCollision(this.GetComponent<Collider>(), this.enemy.bodyController.controller.GetComponent<Collider>());
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger on " + other.gameObject.name);
+        if (other.GetComponent<Obstacle>() != null)
+        {
+            PlayerInventory playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+            Debug.Log("Obstabcle hit " + other.gameObject.name);
+
+            if (playerInventory.heldItem == null || playerInventory.heldItem != this.GetComponent<Item>())
+            {
+                //Debug.Log("Switching target to " + this.transform.gameObject.name);
+                enemy.switchTarget(other.gameObject);
+
+                //var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                //obj.transform.position = this.transform.position;
+
+            }
+        }
+
+        Arrow arrow = other.GetComponent<Arrow>();
+
+        if(arrow)
+        {
+            hitWithArrow(arrow, other);
+        }
+    }
+
+    public void hitWithArrow(Arrow arrow, Collider other)
+    {
+
+            enemy.HitWithArrow(this, arrow);
+
+
+        arrow.transform.position = this.GetComponent<Collider>().ClosestPointOnBounds(arrow.transform.position);
+
+
+        // do this to avoid scaling issues
+        GameObject newObj = new GameObject();
+        arrow.transform.parent = newObj.transform;
+        arrow.transform.parent = this.transform;
+
+
+        //newObj.transform.parent = other.GetComponentInParent<Enemy>().GetComponentInChildren<EnemyBodyPart>().gameObject.transform;
+
+        arrow.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        arrow.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        arrow.GetComponent<Rigidbody>().useGravity = false;
+        arrow.GetComponent<Rigidbody>().isKinematic = true;
+        //this.transform.parent = other.transform;
+        arrow.GetComponent<CapsuleCollider>().enabled = false;
+
+
+    }
+    
+
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    Debug.Log("Trigger on " + other.gameObject.name);
+    //    if (other.gameObject.GetComponent<Obstacle>() != null)
+    //    {
+    //        PlayerInventory playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+    //        Debug.Log("Obstabcle hit " + other.gameObject.name);
+
+    //        Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+    //        if (enemy && (playerInventory.heldItem == null || playerInventory.heldItem != this.GetComponent<Item>()))
+    //        {
+    //            //Debug.Log("Switching target to " + this.transform.gameObject.name);
+    //            enemy.switchTarget(this.gameObject);
+
+    //            //var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    //            //obj.transform.position = this.transform.position;
+
+    //        }
+    //    }
+    //}
 
     ///// <summary>
     ///// Body part has hit something

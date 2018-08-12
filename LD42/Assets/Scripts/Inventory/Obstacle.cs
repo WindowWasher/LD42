@@ -18,19 +18,35 @@ public class Obstacle : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //Debug.Log("Obstabcle hit " + other.gameObject.name);
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    Debug.Log("Obstabcle hit " + other.gameObject.name);
 
-        Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
-        if (enemy && (playerInventory.heldItem == null || playerInventory.heldItem != this.GetComponent<Item>()))
-        {
-            //Debug.Log("Switching target to " + this.transform.gameObject.name);
-            enemy.switchTarget(this.gameObject);
+    //    Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+    //    if (enemy && (playerInventory.heldItem == null || playerInventory.heldItem != this.GetComponent<Item>()))
+    //    {
+    //        //Debug.Log("Switching target to " + this.transform.gameObject.name);
+    //        enemy.switchTarget(this.gameObject);
 
-            //var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            //obj.transform.position = this.transform.position;
-            
-        }
-    }
+    //        //var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    //        //obj.transform.position = this.transform.position;
+
+    //    }
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    //Debug.Log("Obstabcle hit " + other.gameObject.name);
+
+    //    Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+    //    if (enemy && (playerInventory.heldItem == null || playerInventory.heldItem != this.GetComponent<Item>()))
+    //    {
+    //        //Debug.Log("Switching target to " + this.transform.gameObject.name);
+    //        enemy.switchTarget(this.gameObject);
+
+    //        //var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    //        //obj.transform.position = this.transform.position;
+
+    //    }
+    //}
 }

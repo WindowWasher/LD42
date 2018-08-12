@@ -66,7 +66,7 @@ public class BodyController : MonoBehaviour
     {
         if(externalForces != Vector3.zero)
         {
-            Debug.Log(this.gameObject.name + " External Forces: " + externalForces.ToString());
+            //Debug.Log(this.gameObject.name + " External Forces: " + externalForces.ToString());
             controller.Move(this.transform.InverseTransformDirection(externalForces * Time.deltaTime * physicsToForceModifer));
         }
         //controller.Move(this.transform.InverseTransformDirection(externalForces * Time.deltaTime * physicsToForceModifer));
@@ -99,10 +99,16 @@ public class BodyController : MonoBehaviour
             {
                 externalForces.y = 0f;
             }
-            else
-            {
+            //else
+            //{
                 externalForces.y = Mathf.Max(externalForces.y - gravity * Time.deltaTime, -terminalVelocity);
-            }
+            //    if(externalForces.y > -0.3f && externalForces.y < 0f)
+            //{
+            //    externalForces.y = -0.5f;
+            //    externalForces.x = 1f;
+            //}
+            //Debug.Log("ExternalForces2: " + externalForces.ToString());
+            //}
 
         }
 
@@ -135,10 +141,10 @@ public class BodyController : MonoBehaviour
         //this.GetComponent<NavMeshAgent>().enabled = false;
         foreach(EnemyBodyPart bodyPart in this.GetComponentsInChildren<EnemyBodyPart>())
         {
-            if(bodyPart.hasRigidBody)
-            {
-                bodyPart.gameObject.AddComponent<Rigidbody>();
-            }
+            //if(bodyPart.hasRigidBody)
+            //{
+            //    bodyPart.gameObject.AddComponent<Rigidbody>();
+            //}
             if(bodyPart.jointBodyObj != null)
             {
                 bodyPart.gameObject.AddComponent<CharacterJoint>();
