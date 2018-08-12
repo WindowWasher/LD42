@@ -20,6 +20,8 @@ public class PlayerInventory : MonoBehaviour {
     private Timer heldItemTimer = new Timer();
     private float timeUntilDropable = 0.5f;
 
+    public LayerMask itemFallingMask;
+
 
 	// Use this for initialization
 	void Start () {
@@ -59,31 +61,57 @@ public class PlayerInventory : MonoBehaviour {
 
 
         }
+
+        if(Input.GetButtonDown("Fire1") && heldItem != null)
+        {
+            useItem();
+        }
 	}
 
     private void pickUp(Item item)
     {
-        Debug.Log("picked up " + item.gameObject.ToString());
+        //Debug.Log("picked up " + item.gameObject.ToString());
         playerAnimator.Play("PlayerHoldingItem");
         arrowModel.SetActive(false);
         heldItem = item;
+        item.pickup();
         heldItemTimer.Start(timeUntilDropable);
 
         item.gameObject.transform.parent = heldItemHolder.transform;
         item.gameObject.transform.position = heldItemHolder.transform.position;
         item.gameObject.transform.rotation = heldItemHolder.transform.rotation;
 
-        item.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        //item.gameObject.GetComponent<Rigidbody>().useGravity = false;
     }
 
     private void dropItem()
     {
+        //Vector3 targetedPosition = playerBow.getTargetPosition();
 
-        heldItem.gameObject.GetComponent<Rigidbody>().useGravity = true;
-        heldItem.gameObject.transform.parent = null;
 
-        heldItem = null;
-        playerBow.SteadyBow();
+        //if (Vector3.Distance(obj.transform.position, transform.position) < 5f)
+        //{
+
+        //}
+
+        //Vector3 rayOrigin = heldItem.gameObject.transform.position;
+        //RaycastHit hit;
+        //if (Physics.Raycast(rayOrigin, Vector3.down, out hit, 10f, playerBow.aimMask))
+        //{
+            
+            heldItem.gameObject.transform.parent = null;
+            heldItem.falldown(itemFallingMask);
+
+            heldItem = null;
+            playerBow.SteadyBow();
+       // }
+
+        
+    }
+
+    private void useItem()
+    {
+
     }
 
     //private void OnTriggerEnter(Collider other)
