@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 19d3f886a67e87f4888556348655834f
+guid: 0fdb6dadb1f82de49a762930483f3a58
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
-    2100002: Wall
-    2100004: Metal
+    2100000: Metal
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Door
+    4300000: DoorBroken
   externalObjects: {}
   materials:
     importMaterials: 1
