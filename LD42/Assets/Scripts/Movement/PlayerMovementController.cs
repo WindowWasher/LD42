@@ -16,10 +16,22 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 smoothV;
     private Vector2 mouseLook;
 
+    private Animator playerAnimator;
+
+    //private Vector3 arrowOffset;
+    //private GameObject arrowObj;
+    //private GameObject handObj;
+
     void Start()
     {
         bodyController = GetComponent<BodyController>();
+        playerAnimator = GetComponent<Animator>();
+        playerAnimator.speed = 0.25f;
         lockCursor();
+
+        //handObj = GameObject.Find("Hand_R");
+        //arrowObj = GameObject.Find("PlayerArrow");
+        //arrowOffset = handObj.transform.position - arrowObj.transform.position;
     }
 
     public void Freeze(GameObject enemyHoldingPlayer)
@@ -70,7 +82,24 @@ public class PlayerMovementController : MonoBehaviour
             bodyMove();
         }
         cameraMove();
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            playerAnimator.Play("PlayerFireBowBlendTree");
+        }
+
+        //if(Input.GetButtonUp("Fire1"))
+        //{
+        //    playerAnimator.Play("PlayerReleaseBowBlendTree");
+        //}
+
+        //updateArrowPosition();
     }
+
+    //private void updateArrowPosition()
+    //{
+    //    arrowObj.transform.position = handObj.transform.position - arrowOffset;
+    //}
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
