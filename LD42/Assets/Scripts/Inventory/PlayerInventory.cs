@@ -78,6 +78,7 @@ public class PlayerInventory : MonoBehaviour {
         arrowModel.SetActive(false);
         heldItem = item;
         item.pickup();
+        item.gameObject.layer = LayerMask.NameToLayer("PlayerLayer");
         heldItemTimer.Start(timeUntilDropable);
 
         item.gameObject.transform.parent = heldItemHolder.transform;
@@ -104,9 +105,11 @@ public class PlayerInventory : MonoBehaviour {
             
             heldItem.gameObject.transform.parent = null;
             heldItem.falldown(itemFallingMask);
+        heldItem.gameObject.layer = LayerMask.NameToLayer("Default");
 
-            heldItem = null;
+        heldItem = null;
             playerBow.SteadyBow();
+
        // }
 
         
@@ -114,7 +117,6 @@ public class PlayerInventory : MonoBehaviour {
 
     private void useItem()
     {
-        // TODO add attack?
         if(heldItem.isHealthPack)
         {
             Health playerHealth = GetComponent<Health>();
@@ -133,9 +135,11 @@ public class PlayerInventory : MonoBehaviour {
         else
         {
             GameObject obj = playerBow.getTargetedObject();
+            //Debug.Log(obj.name + " Targeted!");
             Health health = obj.GetComponent<Health>();
-            if(health != null && health.playerCanFix && Vector3.Distance(playerBow.getCameraWorldPoint(), obj.transform.position) <= reach)
+            if(health != null && health.playerCanFix && Vector3.Distance(playerBow.getCameraWorldPoint(), obj.transform.position) <= reach && heldItem.healAmount > 0)
             {
+                //Debug.Log("Healing!!!");
                 health.HealDamage(heldItem.healAmount);
                 heldItem.finish();
                 playerBow.SteadyBow();
@@ -143,9 +147,10 @@ public class PlayerInventory : MonoBehaviour {
             }
             else
             {
-                playerAnimator.Play("PlayerAttackWithItemBlendTree");
                 hittingEnemiesTimer.Start(hittingEnemiesLength);
             }
+            playerAnimator.Play("PlayerAttackWithItemBlendTree");
+
         }
         //Vector3 rayOrigin = heldItem.gameObject.transform.position;
         //RaycastHit hit;

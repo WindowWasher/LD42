@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class AgentMovementController : MonoBehaviour
 {
     public BodyController bodyController;
-    MovementBehavior movementBehavior = null;
+    public MovementBehavior movementBehavior = null;
 
     public NavMeshAgent agent;
 

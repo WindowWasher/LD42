@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
 
 
     private FollowPlayerOnSight followPlayerOnSight;
+    private AttackBarrier attackBarrier;
     private float sightRange = 10f;
 
 	// Use this for initialization
@@ -26,18 +27,34 @@ public class Enemy : MonoBehaviour {
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
         agentController.SetBehavior(followPlayerOnSight);
 
-        if (playerInSight())
-        {
-            agentController.SetBehavior(followPlayerOnSight);
-        }
 
+        agentController.SetBehavior(followPlayerOnSight);
 
     }
 	
 	// Update is called once per frame
 	void Update () {
         //bodyController.Ragdoll();	
-	}
+
+        //playerInSight() && 
+        //if (attackBarrier != null && attackBarrier.target != null)
+        //{
+        //    agentController.SetBehavior(followPlayerOnSight);
+        //}
+
+        if(agentController.movementBehavior == attackBarrier && attackBarrier != null && attackBarrier.target == null)
+        {
+            // target just died, switch back to player
+            agentController.SetBehavior(followPlayerOnSight);
+        }
+    }
+
+    public void switchTarget(GameObject barrier)
+    {
+        attackBarrier = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, barrier);
+        attackManager.addTarget(barrier);
+        agentController.SetBehavior(attackBarrier);
+    }
 
     bool playerInSight()
     {

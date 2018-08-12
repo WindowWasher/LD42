@@ -1092,6 +1092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  playerCanFix: 0
 --- !u!114 &114170526281434428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1198,7 +1199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData:
   - {fileID: 11400000, guid: 2c9fc4a1dbdd3e146a708d9e2a5cfc92, type: 2}
-  meeleAttackRange: 1.6
+  meeleAttackRange: 1.75
 --- !u!114 &114611162763544522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1269,6 +1270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyController: {fileID: 0}
+  attackManager: {fileID: 0}
 --- !u!135 &135655767969216546
 SphereCollider:
   m_ObjectHideFlags: 1

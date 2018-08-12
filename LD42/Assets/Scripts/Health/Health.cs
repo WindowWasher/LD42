@@ -64,6 +64,19 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        Debug.Log(this.gameObject.name + " death!!!");
+        if(this.gameObject.name == "Player")
+        {
+            Debug.Log("Player died!");
+        }
+        else if (this.gameObject.GetComponent<Enemy>())
+        {
+            // enemy handles its own death
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         //Debug.Log("Death!!!!");
         //Destroy(gameObject);
         //if(this.GetComponent<Enemy>() != null)

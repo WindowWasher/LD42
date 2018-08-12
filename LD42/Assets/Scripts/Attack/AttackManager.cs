@@ -16,6 +16,7 @@ public class AttackManager : MonoBehaviour
 
     PlayerMovementController playerController;
 
+    private GameObject currentTarget;
     // Use this for initialization
     void Start()
     {
@@ -45,6 +46,12 @@ public class AttackManager : MonoBehaviour
         {
             if (currentAttack.attackLengthTimer.Expired())
             {
+                if(currentTarget != null && currentTarget.layer != LayerMask.NameToLayer("PlayerLayer"))
+                {
+                    currentAttack.DoDamage(currentTarget.GetComponent<Health>());
+                }
+
+
                 currentAttack = null;
             }
             else
@@ -66,9 +73,15 @@ public class AttackManager : MonoBehaviour
         GameObject target = findTargetInRange(nextAttack);
         if (target)
         {
+            currentTarget = target;
             // we found a target in range, so lets attack it
             BeginAttack(nextAttack);
         }
+    }
+
+    public void addTarget(GameObject obj)
+    {
+        targets.Add(obj);
     }
 
     Attack GetNextAttack()
@@ -126,7 +139,7 @@ public class AttackManager : MonoBehaviour
     {
         foreach (GameObject target in targets)
         {
-            if (Vector3.Distance(target.transform.position, this.transform.position) <= attack.attackRange)
+            if (target!=null && Vector3.Distance(target.transform.position, this.transform.position) <= attack.attackRange)
             {
                 return target;
             }

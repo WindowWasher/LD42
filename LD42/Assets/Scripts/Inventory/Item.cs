@@ -76,6 +76,10 @@ public class Item : MonoBehaviour {
                 enemy.bodyController.externalForces += (direction * 2f);
                 enemy.attackManager.UnFreezeIfHolding();
             }
+            else
+            {
+                enemy.switchTarget(this.gameObject);
+            }
         }
     }
 
