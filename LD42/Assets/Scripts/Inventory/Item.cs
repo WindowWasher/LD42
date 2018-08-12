@@ -8,11 +8,18 @@ public class Item : MonoBehaviour {
 
     private float gravitySpeed = 4f;
 
+    private bool heldByPlayer = false;
+    public int healAmount;
+    public bool isHealthPack;
     //private Timer settleTimer = new Timer();
     //private float timeUntilSettle = 0f;
 
+    private PlayerInventory playerInventory;
+
 	// Use this for initialization
 	void Start () {
+
+        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
 		
 	}
 	
@@ -33,6 +40,7 @@ public class Item : MonoBehaviour {
 
     public void pickup()
     {
+        heldByPlayer = true;
         falling = false;
         this.GetComponent<Rigidbody>().isKinematic = true;
         //this.GetComponent<Rigidbody>().useGravity = false;
@@ -40,6 +48,7 @@ public class Item : MonoBehaviour {
 
     public void falldown(LayerMask itemLayerMask)
     {
+        heldByPlayer = false;
         falling = true;
        // this.GetComponent<Rigidbody>().useGravity = true;
         this.GetComponent<Rigidbody>().isKinematic = false;
@@ -52,7 +61,27 @@ public class Item : MonoBehaviour {
         {
             falling = false;
             this.GetComponent<Rigidbody>().isKinematic = true;
+            return;
         }
+
+        
+        Enemy enemy = collision.gameObject.GetComponentInParent<Enemy>();
+        if (enemy)
+        {
+            if(heldByPlayer && !playerInventory.hittingEnemiesTimer.Expired())
+            {
+                var heading = enemy.transform.position - this.transform.position;
+                var distance = heading.magnitude;
+                var direction = heading / distance;
+                enemy.bodyController.externalForces += (direction * 2f);
+                enemy.attackManager.UnFreezeIfHolding();
+            }
+        }
+    }
+
+    public void finish()
+    {
+        Destroy(this.gameObject);
     }
 
 }

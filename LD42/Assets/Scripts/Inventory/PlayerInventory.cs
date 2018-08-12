@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour {
 
-    private Animator playerAnimator;
+    public Animator playerAnimator;
     private GameObject arrowModel;
 
     private PlayerBow playerBow;
@@ -21,6 +21,9 @@ public class PlayerInventory : MonoBehaviour {
     private float timeUntilDropable = 0.5f;
 
     public LayerMask itemFallingMask;
+
+    public Timer hittingEnemiesTimer = new Timer();
+    private float hittingEnemiesLength = 0.5f;
 
 
 	// Use this for initialization
@@ -111,7 +114,40 @@ public class PlayerInventory : MonoBehaviour {
 
     private void useItem()
     {
+        // TODO add attack?
+        if(heldItem.isHealthPack)
+        {
+            GetComponent<Health>().HealDamage(heldItem.healAmount);
+            heldItem.finish();
+            heldItem = null;
+        }
+        else
+        {
+            GameObject obj = playerBow.getTargetedObject();
+            Health health = obj.GetComponent<Health>();
+            if(health != null && health.playerCanFix && Vector3.Distance(playerBow.getCameraWorldPoint(), obj.transform.position) <= reach)
+            {
+                health.HealDamage(heldItem.healAmount);
+                heldItem.finish();
+                heldItem = null;
+            }
+            else
+            {
+                playerAnimator.Play("PlayerAttackWithItemBlendTree");
+                hittingEnemiesTimer.Start(hittingEnemiesLength);
+            }
+        }
+        //Vector3 rayOrigin = heldItem.gameObject.transform.position;
+        //RaycastHit hit;
+        //if (Physics.Raycast(rayOrigin, Vector3.down, out hit, reach, playerBow.aimMask))
+        //{
 
+        //    heldItem.gameObject.transform.parent = null;
+        //    heldItem.falldown(itemFallingMask);
+
+        //heldItem = null;
+        //playerBow.SteadyBow();
+        //}
     }
 
     //private void OnTriggerEnter(Collider other)

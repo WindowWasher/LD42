@@ -134,7 +134,7 @@ public class PlayerBow : MonoBehaviour {
         return false;
     }
 
-    Vector3 getCameraWorldPoint()
+    public Vector3 getCameraWorldPoint()
     {
         return getPlayerCamera().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
     }

@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour {
 
     public BodyController bodyController;
     private AgentMovementController agentController;
-    private AttackManager attackManager;
+    public AttackManager attackManager;
     private Animator animator;
 
 
