@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,6 +14,8 @@ public class AttackManager : MonoBehaviour
     public float meeleAttackRange;
     private float globalCooldown = 0f;
     public Timer canAttackTimer = new Timer();
+
+    public AudioSource enemyAttackSound;
 
     public NavMeshAgent navMeshAgent;
 
@@ -112,6 +114,12 @@ public class AttackManager : MonoBehaviour
 
         navMeshAgent.updatePosition = false;
         navMeshAgent.updateRotation = false;
+
+        if (enemyAttackSound && !enemyAttackSound.isPlaying)
+        {
+            enemyAttackSound.pitch = Random.Range(0.8f, 1.2f);
+            enemyAttackSound.Play();
+        }
     }
 
     public void HitHealth(Health healthHit, GameObject weaponUsed)
