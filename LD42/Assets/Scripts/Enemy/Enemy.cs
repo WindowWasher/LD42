@@ -153,7 +153,7 @@ public class Enemy : MonoBehaviour {
                 Debug.Log("Hit in " + this.name + " for velocity " + bodyPart.GetComponent<Rigidbody>().velocity);
             }
             rightAfterDeathTimer = new Timer();
-            rightAfterDeathTimer.Start(5f);
+            rightAfterDeathTimer.Start(1f);
 
             if (deathSound && !deathSound.isPlaying)
             {

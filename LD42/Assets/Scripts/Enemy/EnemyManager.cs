@@ -148,32 +148,37 @@ public class EnemyManager : MonoBehaviour
 
         //int numberOfEnemiesToSpawn = 200* 5 + numPerWave * waveNumber;
         int numberOfEnemiesToSpawn = lastWaveCount + waveNumber * 2;
-        numberOfEnemiesToSpawn = waveNumber * 10;
-        //if (waveNumber == 1)
-        //{
-        //    //numberOfSpawnLocations = 2;
-        //    numberOfEnemiesToSpawn = 10;
-        //}
-        //else if (waveNumber == 3)
-        //{
-        //    numberOfEnemiesToSpawn = 30;
-        //}
-        //else if (waveNumber == 5)
-        //{
-        //    numberOfEnemiesToSpawn = 60;
-        //}
-        //else if (waveNumber == 6)
-        //{
-        //    numberOfEnemiesToSpawn = 
-        //}
-        //else if (waveNumber == 7)
-        //{
-        //    numberOfEnemiesToSpawn = 100;
-        //}
-        //else if (waveNumber >= 8)
-        //{
-        //    numberOfEnemiesToSpawn = 0;
-        //}
+        //numberOfEnemiesToSpawn = waveNumber * 10;
+        if (waveNumber == 1)
+        {
+            //numberOfSpawnLocations = 2;
+            numberOfEnemiesToSpawn = 10;
+        }
+        else if (waveNumber == 2)
+        {
+            //numberOfSpawnLocations = 2;
+            numberOfEnemiesToSpawn = 20;
+        }
+        else if (waveNumber == 3)
+        {
+            numberOfEnemiesToSpawn = 30;
+        }
+        else if (waveNumber == 5)
+        {
+            numberOfEnemiesToSpawn = 60;
+        }
+        else if (waveNumber == 6)
+        {
+            numberOfEnemiesToSpawn = 60;
+        }
+        else if (waveNumber == 7)
+        {
+            numberOfEnemiesToSpawn = 60;
+        }
+        else if (waveNumber >= 8)
+        {
+            numberOfEnemiesToSpawn = 0;
+        }
         //else if (waveNumber == 10)
         //{
         //    numberOfEnemiesToSpawn = 500;

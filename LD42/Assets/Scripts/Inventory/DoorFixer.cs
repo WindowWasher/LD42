@@ -30,18 +30,19 @@ public class DoorFixer : MonoBehaviour {
         //health.HealDamage(item.healAmount);
         float percent = ((float)health.currentHealth) / health.MaxHealth;
 
-        if (health.currentHealth >= 400)
-        {
-            setHealth(600);
-        }
-        else if (health.currentHealth >= 200)
-        {
-            setHealth(400);
-        }
-        else
-        {
-            setHealth(200);
-        }
+        //if (health.currentHealth >= 400)
+        //{
+        //    setHealth(600);
+        //}
+        //else if (health.currentHealth >= 200)
+        //{
+        //    setHealth(400);
+        //}
+        //else
+        //{
+        //    setHealth(200);
+        //}
+        setHealth(Mathf.Min(health.currentHealth + 200, health.MaxHealth));
         setDoor();
     }
 
