@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 114958436027295780}
   - component: {fileID: 54641972919668658}
   - component: {fileID: 82455353006669980}
+  - component: {fileID: 114377926692607976}
+  - component: {fileID: 64968655319668894}
   m_Layer: 0
   m_Name: MetalPile
   m_TagString: Metal
@@ -101,6 +103,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64968655319668894
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668815088022042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 638d9b7e0f778e14c8cc8becd9207039, type: 3}
 --- !u!82 &82455353006669980
 AudioSource:
   m_ObjectHideFlags: 1
@@ -196,6 +212,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114377926692607976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668815088022042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5915c30c54e83468e85f8a72214d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPrefab: {fileID: 1300497949343328, guid: 33c0eeead76a79c49b89c982004ac0e7,
+    type: 2}
 --- !u!114 &114958436027295780
 MonoBehaviour:
   m_ObjectHideFlags: 1

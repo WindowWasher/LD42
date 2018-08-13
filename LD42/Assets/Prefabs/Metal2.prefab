@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 114932457600328646}
   - component: {fileID: 54148470712993670}
   - component: {fileID: 82575964223015606}
+  - component: {fileID: 114399133655606212}
+  - component: {fileID: 65290084464609590}
   m_Layer: 0
   m_Name: Metal2
   m_TagString: Metal
@@ -102,6 +104,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65290084464609590
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134512851317476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5997753, y: 0.37756518, z: 1.8184114}
+  m_Center: {x: -0.018909842, y: 0.19879581, z: 0.004927218}
 --- !u!82 &82575964223015606
 AudioSource:
   m_ObjectHideFlags: 1
@@ -197,6 +211,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114399133655606212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134512851317476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b9d05e23467ba4faed74e17b89ce0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 20
+  isHealthPack: 0
 --- !u!114 &114932457600328646
 MonoBehaviour:
   m_ObjectHideFlags: 1
