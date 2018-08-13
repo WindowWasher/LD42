@@ -96,8 +96,8 @@ public class PlayerMovementController : MonoBehaviour
         {
             bodyMove();
         }
-        cameraMove();
 
+        cameraMove();
 
 
         //if(Input.GetButtonUp("Fire1"))

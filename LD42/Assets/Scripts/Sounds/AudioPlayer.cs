@@ -23,9 +23,6 @@ public class AudioPlayer : MonoBehaviour {
             source.pitch = Random.Range(0.8f, 1.35f);
             source.Play();
             timeSincePlayed = Time.time;
-            Debug.Log("Playing audio file " + source.clip.name);
         }
-        else
-            Debug.Log("Can't play sound");
     }
 }
