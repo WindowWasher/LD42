@@ -43,9 +43,11 @@ public class PlayerMovementController : MonoBehaviour
         //playerArrow.SetActive(false);
         lockCursor();
 
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerLayer"), LayerMask.NameToLayer("DoorLayer"));
+
         //handObj = GameObject.Find("Hand_R");
         //arrowBone = GameObject.Find("ArrowBoneR");
-        
+
 
 
         //arrowOffset = handObj.transform.position - arrowObj.transform.position;

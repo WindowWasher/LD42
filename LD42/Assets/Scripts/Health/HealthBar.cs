@@ -29,7 +29,6 @@ public class HealthBar : MonoBehaviour
 
     void UpdateHealth(int currentHealth, int damageTaken)
     {
-        Debug.Log("updaingt helath");
         healthFg.fillAmount = (float)currentHealth / health.MaxHealth;
     }
 
