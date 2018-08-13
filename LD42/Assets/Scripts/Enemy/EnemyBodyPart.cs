@@ -64,10 +64,26 @@ public class EnemyBodyPart : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger on " + other.gameObject.name);
+        if (other.gameObject.GetComponent<EnemyBodyPart>())
+            return;
+        //Debug.Log("Trigger on " + other.gameObject.name);
+
+        PlayerInventory playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
+
+        Item item = other.GetComponent<Item>();
+
+        if(item != null && item == playerInventory.heldItem && !playerInventory.hittingEnemiesTimer.Expired())
+        {
+            var heading = enemy.transform.position - other.transform.position;
+            var distance = heading.magnitude;
+            var direction = heading / distance;
+            enemy.bodyController.externalForces += (direction * 1f);
+            enemy.attackManager.UnFreezeIfHolding();
+        }
+
         if (other.GetComponent<Obstacle>() != null)
         {
-            PlayerInventory playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
             Debug.Log("Obstabcle hit " + other.gameObject.name);
 
             if (playerInventory.heldItem == null || playerInventory.heldItem != this.GetComponent<Item>())
