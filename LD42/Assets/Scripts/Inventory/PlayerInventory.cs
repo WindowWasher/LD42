@@ -50,7 +50,25 @@ public class PlayerInventory : MonoBehaviour {
 
                 if (item != null && Vector3.Distance(obj.transform.position, transform.position) < reach)
                 {
-                    pickUp(item);
+                    if (item.isHealthPack)
+                    {
+                        Health playerHealth = GetComponent<Health>();
+                        if (playerHealth.currentHealth == playerHealth.MaxHealth)
+                        {
+                            
+                        }
+                        else
+                        {
+                            playerHealth.HealDamage(playerHealth.MaxHealth - playerHealth.currentHealth);
+                            item.finish();
+                        }
+                        
+                    }
+                    else
+                    {
+                        pickUp(item);
+                    }
+
 
                 }
 

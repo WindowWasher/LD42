@@ -33,5 +33,6 @@ public class EnemeyFloorHole : MonoBehaviour {
     void showHole()
     {
         this.GetComponent<MeshFilter>().mesh = enemyManager.newMesh;
+        Destroy(this.GetComponentInChildren<HealthBar>().gameObject);
     }
 }
