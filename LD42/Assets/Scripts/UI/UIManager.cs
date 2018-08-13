@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour {
 
     public Image healthBarFg;
     public GameObject player;
+    public GameObject winScreen;
 
     public Image gameBarFg;
     public Image bonfireFg;
@@ -23,6 +24,8 @@ public class UIManager : MonoBehaviour {
 
         gameTimer.Start(totalTime);
         startTime = Time.time;
+
+        winScreen.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -43,15 +46,14 @@ public class UIManager : MonoBehaviour {
 
         if(gameTimer.Expired())
         {
-            //Debug.Log("Player Wins!");
+            Time.timeScale = 0;
+            winScreen.SetActive(true);
         }
     }
 
     void UpdateFireHealthBar(int currentHealth, int maxHealth)
     {
         bonfireFg.fillAmount = (float)currentHealth / maxHealth;
-
-        
     }
 
     void UpdateHealthBar(int currentHealth, int maxHealth)
