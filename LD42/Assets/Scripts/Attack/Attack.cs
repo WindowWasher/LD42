@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -103,6 +103,13 @@ public class Attack
         health.TakeDamage(data.baseDamage);
         hitTimers[health] = new Timer();
         hitTimers[health].Start(data.damageInterval);
+
+        AudioPlayer audioPlayer = health.gameObject.GetComponent<AudioPlayer>();
+
+        if (audioPlayer)
+        {
+            audioPlayer.PlaySound();
+        }
     }
 
     /// <summary>

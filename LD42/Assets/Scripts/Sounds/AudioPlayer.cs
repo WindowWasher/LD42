@@ -6,7 +6,7 @@ public class AudioPlayer : MonoBehaviour {
 
     public AudioSource source;
 
-    public float timeDelayBetweenPlays = 1;
+    public float timeDelayBetweenPlays = 0.5f;
 
     private float timeSincePlayed;
 
@@ -18,10 +18,14 @@ public class AudioPlayer : MonoBehaviour {
 
     public void PlaySound()
     {
-        if (!source.isPlaying && timeSincePlayed + timeDelayBetweenPlays > Time.time)
+        if (source && !source.isPlaying && timeSincePlayed + timeDelayBetweenPlays < Time.time)
         {
+            source.pitch = Random.Range(0.8f, 1.35f);
             source.Play();
             timeSincePlayed = Time.time;
+            Debug.Log("Playing audio file " + source.clip.name);
         }
+        else
+            Debug.Log("Can't play sound");
     }
 }

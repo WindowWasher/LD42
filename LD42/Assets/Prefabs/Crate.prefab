@@ -24,8 +24,9 @@ GameObject:
   - component: {fileID: 65863434258995764}
   - component: {fileID: 114944930165849124}
   - component: {fileID: 114034943879466248}
-  - component: {fileID: 114769394155771398}
-  - component: {fileID: 54315889194931444}
+  - component: {fileID: 114007892145351976}
+  - component: {fileID: 82485087298484356}
+  - component: {fileID: 54977402789996094}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Wood
@@ -39,8 +40,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578541322535346}
-  m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: -325.5, y: 0.25, z: -25.75}
+  m_LocalRotation: {x: -0.70214266, y: -0.083639435, z: -0.08363939, w: 0.70214283}
+  m_LocalPosition: {x: -102.19922, y: 93.3125, z: -291.21094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,7 +90,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578541322535346}
   m_Mesh: {fileID: 4300000, guid: dffcea7229d6c734692924153fbc88ff, type: 3}
---- !u!54 &54315889194931444
+--- !u!54 &54977402789996094
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -116,6 +117,114 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 1.1999999, z: 1.1999999}
   m_Center: {x: -4.1318055e-15, y: 0, z: 0.5814999}
+--- !u!82 &82485087298484356
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578541322535346}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b01ecd1343e08f549b932af4c2298af5, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &114007892145351976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578541322535346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be31fc373f60ad54b83f544475c57cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 82485087298484356}
+  timeDelayBetweenPlays: 0.5
 --- !u!114 &114034943879466248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,19 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b050971ade56a49b7c7348e799411f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114769394155771398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1578541322535346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b9d05e23467ba4faed74e17b89ce0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healAmount: 0
-  isHealthPack: 0
 --- !u!114 &114944930165849124
 MonoBehaviour:
   m_ObjectHideFlags: 1
