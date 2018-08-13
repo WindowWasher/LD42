@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour {
     private bool playerKiller = false;
 
     private Timer rightAfterDeathTimer = null;
+
+    public AudioSource deathSound;
+    public AudioSource hitSound;
 
 	// Use this for initialization
 	void Start () {
@@ -95,6 +98,13 @@ public class Enemy : MonoBehaviour {
             return;
         bool headHit = (bodyPart.gameObject.name == "HeadBone");
         health.TakeDamage(arrow.damage);
+
+        if (hitSound && !hitSound.isPlaying)
+        {
+            hitSound.pitch = Random.Range(0.8f, 1.2f);
+            hitSound.Play();
+        }
+
         if(headHit)
         {
             health.TakeDamage(arrow.damage * 10);
@@ -120,6 +130,12 @@ public class Enemy : MonoBehaviour {
             }
             rightAfterDeathTimer = new Timer();
             rightAfterDeathTimer.Start(5f);
+
+            if (deathSound && !deathSound.isPlaying)
+            {
+                deathSound.pitch = Random.Range(0.8f, 1.2f);
+                deathSound.Play();
+            }
 
         }
     }
