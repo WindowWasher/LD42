@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54314424501607738}
   - component: {fileID: 114869424010568720}
   - component: {fileID: 82282952922981392}
+  - component: {fileID: 114110859893140216}
   m_Layer: 0
   m_Name: WoodBarricade1
   m_TagString: Wood
@@ -212,6 +213,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114110859893140216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1469135811123976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b050971ade56a49b7c7348e799411f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114869424010568720
 MonoBehaviour:
   m_ObjectHideFlags: 1
