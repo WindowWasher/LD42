@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour {
     public AttackManager attackManager;
     private Animator animator;
 
-    private AttackBarrier attackFire;
+    //private AttackBarrier attackSpawnPoint;
+    //private AttackBarrier attackFire;
     private FollowPlayerOnSight followPlayerOnSight;
     public AttackBarrier attackBarrier;
     private float sightRange = 10f;
@@ -21,6 +22,8 @@ public class Enemy : MonoBehaviour {
     public AudioSource deathSound;
     public AudioSource hitSound;
 
+    private EnemyManager enemyManager;
+
 	// Use this for initialization
 	void Start () {
 
@@ -29,11 +32,13 @@ public class Enemy : MonoBehaviour {
         attackManager = GetComponent<AttackManager>();
         animator = GetComponent<Animator>();
 
+        enemyManager = GameObject.Find("ZombieSpawner").GetComponent<EnemyManager>();
+
         animator.speed = 0.25f;
         playerKiller = (Random.value > 0.5f);
 
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
-        attackFire = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, GameObject.Find("BonFire"));
+        //attackFire = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, GameObject.Find("BonFire"));
         defaultTarget();
 
     }
@@ -46,7 +51,19 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
-            agentController.SetBehavior(attackFire);
+            
+            if (enemyManager.spawnPointsToUncover.Count > 0)
+            {
+                GameObject randomSpawn = RandomUtil.choice(enemyManager.spawnPointsToUncover);
+                attackBarrier = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, randomSpawn);
+                agentController.SetBehavior(attackBarrier);
+            }
+            else
+            {
+                attackBarrier = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, GameObject.Find("BonFire"));
+                agentController.SetBehavior(attackBarrier);
+            }
+            
         }
     }
 	

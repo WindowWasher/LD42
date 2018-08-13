@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     private bool isAlive = true;
     //public bool isDoorFixer = false;
     public DoorFixer doorFixer = null;
+    //public EnemeyFloorHole floorHole = null;
 
     public bool playerCanFix = false;
 
@@ -93,6 +94,10 @@ public class Health : MonoBehaviour
         else if (this.gameObject.GetComponent<DoorFixer>())
         {
             // doors can't die
+        }
+        else if (this.gameObject.GetComponent<EnemeyFloorHole>())
+        {
+            // floor holdes can't die
         }
         else { 
             Destroy(this.gameObject);

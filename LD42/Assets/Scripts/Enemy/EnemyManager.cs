@@ -11,11 +11,14 @@ public class EnemyManager : MonoBehaviour
     //public float waveSpawnRadius;
     //public Vector3 center;
 
+    public Mesh newMesh;
+
     float interval = 30f;
-    int numberOfSpawnLocations = 3;
+    //int numberOfSpawnLocations = 3;
     public float localSpawnRadius;
 
-    GameObject[] spawnPoints;
+    public List<GameObject> spawnPoints;
+    public List<GameObject> spawnPointsToUncover  = new List<GameObject>();
 
     Timer intervalTimer = new Timer();
 
@@ -78,7 +81,17 @@ public class EnemyManager : MonoBehaviour
         //enemyObjectPool["Archer"] = new List<GameObject>();
         //waveCountPanel = GameObject.Find("WaveCountPanel");
 
-        spawnPoints = GameObject.FindGameObjectsWithTag("ZombieSpawner");
+        spawnPointsToUncover = GameObject.FindGameObjectsWithTag("ZombieSpawner").ToList();
+        foreach(GameObject obj in spawnPoints)
+        {
+            if(spawnPointsToUncover.Contains(obj))
+            {
+                Debug.Log("Removed spawn point");
+                spawnPointsToUncover.Remove(obj);
+            }
+        }
+
+        //spawnPoints = GameObject.FindGameObjectsWithTag("ZombieSpawner");
 
         SpawnWave();
     }
@@ -98,6 +111,13 @@ public class EnemyManager : MonoBehaviour
         //throw new KeyNotFoundException("You lost!");
     }
 
+    public void uncover(EnemeyFloorHole newHole)
+    {
+        spawnPoints.RemoveAt(0);
+        spawnPoints.Add(newHole.gameObject);
+        spawnPointsToUncover.Remove(newHole.gameObject);
+    }
+
     void SpawnWave()
     {
         //List<GameObject> currentSpawnPoints = new List<GameObject>();
@@ -108,12 +128,12 @@ public class EnemyManager : MonoBehaviour
         waveRunning = true;
 
         List<int> rangeValues = new List<int>();
-        for (int i = 0; i < spawnPoints.Length; ++i)
+        for (int i = 0; i < spawnPoints.Count; ++i)
         {
             rangeValues.Add(i);
         }
 
-         numberOfSpawnLocations = 3;
+         int numberOfSpawnLocations = spawnPoints.Count;
         //int numberOfSpawnLocations = spawnPoints.Length;
         List<int> randomIndexes = new List<int>();
         for (int i = 0; i < numberOfSpawnLocations; i++)

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54446317768352662}
   - component: {fileID: 114806788562570220}
   m_Layer: 0
-  m_Name: ConcreteFloorHole2
+  m_Name: ConcreteFloorHole1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
