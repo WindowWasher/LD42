@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour {
 
         animator.speed = animationSpeed; 
         enemyManager = GameObject.Find("ZombieSpawner").GetComponent<EnemyManager>();
-        playerKiller = (Random.value > 0.5f);
+        playerKiller = (Random.value > 0.8f);
 
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
         //attackFire = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, GameObject.Find("BonFire"));

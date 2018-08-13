@@ -18,6 +18,8 @@ public class UIHelper : MonoBehaviour {
         {
             welcomeInformation.SetActive(false);
             Time.timeScale = 1;
+            //Time.timeScale = 5f;
+
         }
     }
 }

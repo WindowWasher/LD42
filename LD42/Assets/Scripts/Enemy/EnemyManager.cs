@@ -72,6 +72,8 @@ public class EnemyManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+
         //enemyPrefabs = new List<GameObject>();
 
         //enemyPrefabs.Add((GameObject)Resources.Load("Enemies/Barbarian"));
@@ -146,27 +148,36 @@ public class EnemyManager : MonoBehaviour
 
         //int numberOfEnemiesToSpawn = 200* 5 + numPerWave * waveNumber;
         int numberOfEnemiesToSpawn = lastWaveCount + waveNumber * 2;
-        if (waveNumber == 1)
-        {
-            //numberOfSpawnLocations = 2;
-            numberOfEnemiesToSpawn = 10;
-        }
-        else if (waveNumber == 3)
-        {
-            numberOfEnemiesToSpawn = 30;
-        }
-        else if (waveNumber == 5)
-        {
-            numberOfEnemiesToSpawn = 70;
-        }
-        else if (waveNumber == 7)
-        {
-            numberOfEnemiesToSpawn = 150;
-        }
-        else if (waveNumber == 10)
-        {
-            numberOfEnemiesToSpawn = 500;
-        }
+        numberOfEnemiesToSpawn = waveNumber * 10;
+        //if (waveNumber == 1)
+        //{
+        //    //numberOfSpawnLocations = 2;
+        //    numberOfEnemiesToSpawn = 10;
+        //}
+        //else if (waveNumber == 3)
+        //{
+        //    numberOfEnemiesToSpawn = 30;
+        //}
+        //else if (waveNumber == 5)
+        //{
+        //    numberOfEnemiesToSpawn = 60;
+        //}
+        //else if (waveNumber == 6)
+        //{
+        //    numberOfEnemiesToSpawn = 
+        //}
+        //else if (waveNumber == 7)
+        //{
+        //    numberOfEnemiesToSpawn = 100;
+        //}
+        //else if (waveNumber >= 8)
+        //{
+        //    numberOfEnemiesToSpawn = 0;
+        //}
+        //else if (waveNumber == 10)
+        //{
+        //    numberOfEnemiesToSpawn = 500;
+        //}
         lastWaveCount = numberOfEnemiesToSpawn;
         int numPerWave = numberOfEnemiesToSpawn / numberOfSpawnLocations;
         //int numberOfEnemiesToSpawn = 20000 + 5 * waveNumber;
@@ -179,7 +190,7 @@ public class EnemyManager : MonoBehaviour
         {
             var spawnP = spawnPoints[randomIndexes[i]];
             selectedSpawnPoints.Add(spawnP);
-            StartCoroutine(SpawnEnemiesAtPosition(spawnP.transform.position, enemiesPerWave));
+            StartCoroutine(SpawnEnemiesAtPosition(i, enemiesPerWave));
 
         }
         //StartCoroutine(DoSpawning(selectedSpawnPoints, enemiesPerWave));
@@ -225,9 +236,11 @@ public class EnemyManager : MonoBehaviour
 
 
 
-    IEnumerator SpawnEnemiesAtPosition(Vector3 spawnPoint, int numberOfEnemiesToSpawn)
+    IEnumerator SpawnEnemiesAtPosition(int index, int numberOfEnemiesToSpawn)
     {
         //Vector2 localSpawnPoint = Random.insideUnitCircle.normalized * waveSpawnRadius;
+        GameObject spawnObj = spawnPoints[index];
+        Vector3 spawnPoint = spawnObj.transform.position;
         Vector2 localSpawnPoint = new Vector2(spawnPoint.x, spawnPoint.z);
 
         float enemiesToSpawnPerSecond = Mathf.Max(interval/ numberOfEnemiesToSpawn, 0.5f);
@@ -239,6 +252,13 @@ public class EnemyManager : MonoBehaviour
             Debug.Log("Waiting " + enemiesToSpawnPerSecond + " " + numberOfEnemiesToSpawn + " " + interval);
             yield return new WaitForSeconds(enemiesToSpawnPerSecond);
             //}
+
+            if(spawnPoints[index] != spawnObj)
+            {
+                 spawnObj = spawnPoints[index];
+                 spawnPoint = spawnObj.transform.position;
+                 localSpawnPoint = new Vector2(spawnPoint.x, spawnPoint.z);
+            }
 
             GameObject newEnemyPrefab = enemyPrefabs[0];
             //if (Random.Range(0, 3) == 1 && waveNumber > 2)
