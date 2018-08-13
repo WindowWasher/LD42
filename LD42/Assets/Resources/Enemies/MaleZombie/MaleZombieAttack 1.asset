@@ -21,6 +21,6 @@ MonoBehaviour:
   - LowerArm_R
   - Hand_R
   attackRange: 0
-  baseDamage: 50
+  baseDamage: 5
   damageInterval: 0
   postAttackCooldown: 0
