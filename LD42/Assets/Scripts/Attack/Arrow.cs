@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -300,6 +300,11 @@ public class Arrow : MonoBehaviour {
         this.transform.parent = newObj.transform;
         newObj.transform.parent = other.transform;
 
+        AudioPlayer audioPlayer = other.gameObject.GetComponent<AudioPlayer>();
+        if (audioPlayer != null)
+        {
+            audioPlayer.PlaySound();
+        }
 
         //newObj.transform.parent = other.GetComponentInParent<Enemy>().GetComponentInChildren<EnemyBodyPart>().gameObject.transform;
 
