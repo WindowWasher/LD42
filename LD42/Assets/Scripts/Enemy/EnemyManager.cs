@@ -152,7 +152,7 @@ public class EnemyManager : MonoBehaviour
         if (waveNumber == 1)
         {
             //numberOfSpawnLocations = 2;
-            numberOfEnemiesToSpawn = 10;
+            numberOfEnemiesToSpawn = 15;
         }
         else if (waveNumber == 2)
         {
