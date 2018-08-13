@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33953880423619908}
   - component: {fileID: 23789605611638444}
   - component: {fileID: 64326907933603598}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WoodBarricade3
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33238840162071520}
   - component: {fileID: 23352707183007484}
   - component: {fileID: 64485419686276864}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WoodBarricade2
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114936568348250988}
   - component: {fileID: 114717116724122510}
   - component: {fileID: 114229096246695932}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 224902088421894868}
   - component: {fileID: 222464964674669710}
   - component: {fileID: 114404848058471274}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4723706645483112}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorFixerParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 224437174443632548}
   - component: {fileID: 222838447269214954}
   - component: {fileID: 114090376223178026}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HealthBarFG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 114373610259298306}
   - component: {fileID: 114784124735860486}
   - component: {fileID: 114266924587951356}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HealthBar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 224753773462064884}
   - component: {fileID: 222635296474923470}
   - component: {fileID: 114689381590147008}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HealthBarBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 224907173293957834}
   - component: {fileID: 222538655571935442}
   - component: {fileID: 114992544172252340}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HealthBarBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,9 @@ GameObject:
   - component: {fileID: 65628126408268506}
   - component: {fileID: 114545198792731436}
   - component: {fileID: 114451292086526028}
-  m_Layer: 0
+  - component: {fileID: 54400272005726356}
+  - component: {fileID: 114706404269003378}
+  m_Layer: 11
   m_Name: DoorFixer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +201,7 @@ GameObject:
   - component: {fileID: 33322785639297776}
   - component: {fileID: 23761685794226308}
   - component: {fileID: 64705914244115656}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WoodBarricade1
   m_TagString: Wood
   m_Icon: {fileID: 0}
@@ -216,7 +218,7 @@ GameObject:
   - component: {fileID: 224277227466404880}
   - component: {fileID: 222538706961680514}
   - component: {fileID: 114992424857343880}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HealthBarFG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +235,7 @@ GameObject:
   - component: {fileID: 224028810337186250}
   - component: {fileID: 222170559288574550}
   - component: {fileID: 114375317178525652}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,6 +481,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005067345131052}
   m_Mesh: {fileID: 4300000, guid: 23b89776674afed45827ac6d5f52278a, type: 3}
+--- !u!54 &54400272005726356
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782852872524718}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64326907933603598
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -714,6 +731,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114706404269003378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782852872524718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b050971ade56a49b7c7348e799411f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114717116724122510
 MonoBehaviour:
   m_ObjectHideFlags: 1
