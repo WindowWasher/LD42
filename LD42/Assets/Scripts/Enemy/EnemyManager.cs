@@ -101,7 +101,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Wave: " + (waveNumber-1));
+       // Debug.Log("Wave: " + (waveNumber-1));
         if (intervalTimer.Expired() && !waveRunning)
         {
             SpawnWave();
@@ -254,7 +254,7 @@ public class EnemyManager : MonoBehaviour
         {
             //if (i % 2 == 0)
             //{
-            Debug.Log("Waiting " + enemiesToSpawnPerSecond + " " + numberOfEnemiesToSpawn + " " + interval);
+            //Debug.Log("Waiting " + enemiesToSpawnPerSecond + " " + numberOfEnemiesToSpawn + " " + interval);
             yield return new WaitForSeconds(enemiesToSpawnPerSecond);
             //}
 

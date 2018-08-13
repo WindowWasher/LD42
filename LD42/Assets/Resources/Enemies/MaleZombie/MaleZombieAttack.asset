@@ -15,6 +15,6 @@ MonoBehaviour:
   weaponizedObjects:
   - HeadBone
   attackRange: 0
-  baseDamage: 10
+  baseDamage: 5
   damageInterval: 0
   postAttackCooldown: 0
