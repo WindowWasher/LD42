@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
     private AttackBarrier attackFire;
     private FollowPlayerOnSight followPlayerOnSight;
     public AttackBarrier attackBarrier;
+    public float animationSpeed = 0.25f;
     private float sightRange = 10f;
 
     private bool playerKiller = false;
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour {
         attackManager = GetComponent<AttackManager>();
         animator = GetComponent<Animator>();
 
-        animator.speed = 0.25f;
+        animator.speed = animationSpeed; 
         playerKiller = (Random.value > 0.5f);
 
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
