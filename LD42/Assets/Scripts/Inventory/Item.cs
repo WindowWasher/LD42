@@ -42,9 +42,9 @@ public class Item : MonoBehaviour {
     {
         heldByPlayer = true;
         falling = false;
-        //this.GetComponent<Rigidbody>().isKinematic = true;
+        this.GetComponent<Rigidbody>().isKinematic = true;
         this.GetComponent<Rigidbody>().useGravity = false;
-        this.GetComponent<Collider>().isTrigger = false;
+        this.GetComponent<Collider>().isTrigger = true;
 
     }
 
@@ -54,6 +54,7 @@ public class Item : MonoBehaviour {
         falling = true;
         this.GetComponent<Rigidbody>().useGravity = true;
         this.GetComponent<Collider>().isTrigger = true;
+        //this.GetComponent<Rigidbody>().AddForce(GameObject.Find("Player").GetComponent<Rigidbody>().velocity);
         //this.transform.LookAt(Vector3.up);
         //this.transform.Translate(Vector3.back * 2f);
         //var heading = GameObject.Find("Player").transform.position - this.transform.position;

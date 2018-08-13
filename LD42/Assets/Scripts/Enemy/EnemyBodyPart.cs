@@ -84,7 +84,7 @@ public class EnemyBodyPart : MonoBehaviour
 
         if (other.GetComponent<Obstacle>() != null)
         {
-            Debug.Log("Obstabcle hit " + other.gameObject.name);
+            //Debug.Log("Obstabcle hit " + other.gameObject.name);
 
             if (playerInventory.heldItem == null || playerInventory.heldItem != this.GetComponent<Item>())
             {

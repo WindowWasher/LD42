@@ -35,7 +35,7 @@ public class EnemyManager : MonoBehaviour
     GameObject CreateEnemy(GameObject enemyPrefab, Vector3 position)
     {
         enemyTotalSpawned += 1;
-        Debug.Log("Enemeies: " + enemyTotalSpawned.ToString());
+        //Debug.Log("Enemeies: " + enemyTotalSpawned.ToString());
         GameObject enemy;
         NavMeshHit hit = new NavMeshHit();
         if (NavMesh.SamplePosition(position, out hit, 10f, NavMesh.AllAreas))

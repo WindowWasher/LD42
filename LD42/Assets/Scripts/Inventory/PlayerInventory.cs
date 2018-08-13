@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour {
 
     //private Item reachableItem;
 
-    private float reach = 5f;
+    private float reach = 8f;
 
     public Item heldItem;
 
@@ -46,9 +46,19 @@ public class PlayerInventory : MonoBehaviour {
                 GameObject obj = playerBow.getTargetedObject();
 
                 Item item = obj == null ? null : obj.GetComponent<Item>();
+                ItemSpawner spawner = obj == null ? null : obj.GetComponent<ItemSpawner>();
 
-                if (item != null && Vector3.Distance(obj.transform.position, transform.position) < 5f)
+                if (item != null && Vector3.Distance(obj.transform.position, transform.position) < reach)
                 {
+                    pickUp(item);
+
+                }
+
+                if (spawner != null && Vector3.Distance(obj.transform.position, transform.position) < reach)
+                {
+                    var newItemObj = GameObject.Instantiate(spawner.spawnPrefab);
+                    newItemObj.transform.position = newItemObj.transform.position + new Vector3(0, 1, 0);
+                    item = newItemObj.GetComponent<Item>();
                     pickUp(item);
 
                 }
@@ -140,7 +150,15 @@ public class PlayerInventory : MonoBehaviour {
             if(health != null && health.playerCanFix && Vector3.Distance(playerBow.getCameraWorldPoint(), obj.transform.position) <= reach && heldItem.healAmount > 0)
             {
                 //Debug.Log("Healing!!!");
-                health.HealDamage(heldItem.healAmount);
+                DoorFixer doorFixer = obj.GetComponentInChildren<DoorFixer>();
+                if (doorFixer != null)
+                {
+                    doorFixer.heal(heldItem);
+                }
+                else
+                {
+                    health.HealDamage(heldItem.healAmount);
+                }
                 heldItem.finish();
                 playerBow.SteadyBow();
                 heldItem = null;
