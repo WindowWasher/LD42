@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114007892145351976}
   - component: {fileID: 82485087298484356}
   - component: {fileID: 54977402789996094}
+  - component: {fileID: 114634022143014694}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Wood
@@ -236,6 +237,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b050971ade56a49b7c7348e799411f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114634022143014694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578541322535346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b9d05e23467ba4faed74e17b89ce0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 0
+  isHealthPack: 0
 --- !u!114 &114944930165849124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,4 +262,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  doorFixer: {fileID: 0}
   playerCanFix: 0

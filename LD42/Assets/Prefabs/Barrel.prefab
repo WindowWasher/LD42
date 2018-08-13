@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4641266625345780}
   - component: {fileID: 33406601076517454}
   - component: {fileID: 23639544615326352}
-  - component: {fileID: 64826024621393972}
   - component: {fileID: 114746492912616978}
   - component: {fileID: 114201218573335122}
   - component: {fileID: 54640879304485762}
   - component: {fileID: 114096968706697002}
   - component: {fileID: 82767258879186102}
+  - component: {fileID: 114245213973166324}
+  - component: {fileID: 136684266893318416}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Metal
@@ -105,20 +106,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64826024621393972
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1121194546676130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 512c420068ad2c247b97693720e60682, type: 3}
 --- !u!82 &82767258879186102
 AudioSource:
   m_ObjectHideFlags: 1
@@ -239,7 +226,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  doorFixer: {fileID: 0}
   playerCanFix: 0
+--- !u!114 &114245213973166324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121194546676130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b9d05e23467ba4faed74e17b89ce0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 0
+  isHealthPack: 0
 --- !u!114 &114746492912616978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,3 +252,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b050971ade56a49b7c7348e799411f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136684266893318416
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121194546676130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3628965
+  m_Height: 1.0526185
+  m_Direction: 1
+  m_Center: {x: 2.2374337e-22, y: 0.5282991, z: 0.000000059604645}
