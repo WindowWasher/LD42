@@ -74,6 +74,10 @@ ModelImporter:
     100136: WoodBarricade2
     100138: WoodBarricade3
     100140: BonFire
+    100142: ConcreteFloorHole1
+    100144: Armature
+    100146: ConcreteFloorHole2
+    100148: metarig_001
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -145,6 +149,10 @@ ModelImporter:
     400136: WoodBarricade2
     400138: WoodBarricade3
     400140: BonFire
+    400142: ConcreteFloorHole1
+    400144: Armature
+    400146: ConcreteFloorHole2
+    400148: metarig_001
     2100000: unnamed
     2100002: Metal
     2100004: CreateEdge
@@ -157,6 +165,7 @@ ModelImporter:
     2100018: Concrete
     2100020: CrateEdge
     2100022: Floor
+    2100024: Mud
     2300000: //RootNode
     2300002: Cube
     2300004: Cube_001
@@ -227,6 +236,8 @@ ModelImporter:
     2300134: WoodBarricade2
     2300136: WoodBarricade3
     2300138: BonFire
+    2300140: ConcreteFloorHole1
+    2300142: ConcreteFloorHole2
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -297,6 +308,8 @@ ModelImporter:
     3300134: WoodBarricade2
     3300136: WoodBarricade3
     3300138: BonFire
+    3300140: ConcreteFloorHole1
+    3300142: ConcreteFloorHole2
     4300000: Cube
     4300002: Cube_001
     4300004: Door
@@ -366,6 +379,8 @@ ModelImporter:
     4300132: MetalBarricade2
     4300134: MetalBarricade1
     4300136: BonFire
+    4300138: ConcreteFloorHole1
+    4300140: ConcreteFloorHole2
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
