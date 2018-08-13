@@ -5,7 +5,7 @@ using UnityEngine;
 public class Timer
 {
 
-    private float endTime;
+    public float endTime;
 
     public Timer()
     {
