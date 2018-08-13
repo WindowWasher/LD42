@@ -30,17 +30,17 @@ public class DoorFixer : MonoBehaviour {
         //health.HealDamage(item.healAmount);
         float percent = ((float)health.currentHealth) / health.MaxHealth;
 
-        if (percent >= 0.33)
+        if (health.currentHealth >= 400)
         {
-            setHealth(300);
+            setHealth(600);
         }
-        else if (percent > 0)
+        else if (health.currentHealth >= 200)
         {
-            setHealth(200);
+            setHealth(400);
         }
         else
         {
-            setHealth(100);
+            setHealth(200);
         }
         setDoor();
     }
@@ -56,19 +56,19 @@ public class DoorFixer : MonoBehaviour {
         float percent = ((float)health.currentHealth) / health.MaxHealth;
         //Debug.Log("Percent; " + percent.ToString());
 
-        if (percent >= 0.66)
+        if (health.currentHealth > 400)
         {
             door1.SetActive(true);
             door2.SetActive(false);
             door3.SetActive(false);
         }
-        else if (percent >= 0.33)
+        else if (health.currentHealth > 200)
         {
             door1.SetActive(false);
             door2.SetActive(true);
             door3.SetActive(false);
         }
-        else if (percent > 0)
+        else if (health.currentHealth > 0)
         {
             door1.SetActive(false);
             door2.SetActive(false);

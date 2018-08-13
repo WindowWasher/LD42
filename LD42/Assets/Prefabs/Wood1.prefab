@@ -39,8 +39,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1593113926219340}
-  m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: -313.64417, y: 0.12637195, z: -18.774937}
+  m_LocalRotation: {x: -0.6438427, y: -0.29234663, z: -0.29234663, w: 0.6438429}
+  m_LocalPosition: {x: -74.55353, y: 93.18753, z: -13.342438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,7 +113,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.4237473, y: 0.3870873, z: 0.11331521}
+  m_Size: {x: 6, y: 1.5, z: 0.5}
   m_Center: {x: -3.925634e-16, y: 0, z: 0.05524838}
 --- !u!82 &82595725832504802
 AudioSource:
@@ -234,5 +234,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9d05e23467ba4faed74e17b89ce0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 20
+  healAmount: 100
   isHealthPack: 0

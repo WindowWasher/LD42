@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
 
     public Mesh newMesh;
 
-    float interval = 30f;
+    float interval = 60f;
     //int numberOfSpawnLocations = 3;
     public float localSpawnRadius;
 
@@ -99,6 +99,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Wave: " + (waveNumber-1));
         if (intervalTimer.Expired() && !waveRunning)
         {
             SpawnWave();
@@ -148,7 +149,7 @@ public class EnemyManager : MonoBehaviour
         if (waveNumber == 1)
         {
             //numberOfSpawnLocations = 2;
-            numberOfEnemiesToSpawn = 20;
+            numberOfEnemiesToSpawn = 10;
         }
         else if (waveNumber == 3)
         {
@@ -156,15 +157,15 @@ public class EnemyManager : MonoBehaviour
         }
         else if (waveNumber == 5)
         {
-            numberOfEnemiesToSpawn = 60;
+            numberOfEnemiesToSpawn = 70;
         }
         else if (waveNumber == 7)
         {
-            numberOfEnemiesToSpawn = 100;
+            numberOfEnemiesToSpawn = 150;
         }
         else if (waveNumber == 10)
         {
-            numberOfEnemiesToSpawn = 1000;
+            numberOfEnemiesToSpawn = 500;
         }
         lastWaveCount = numberOfEnemiesToSpawn;
         int numPerWave = numberOfEnemiesToSpawn / numberOfSpawnLocations;

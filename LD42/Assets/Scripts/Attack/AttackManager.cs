@@ -12,7 +12,7 @@ public class AttackManager : MonoBehaviour
     public Attack currentAttack;
     private List<GameObject> targets;
     public float meeleAttackRange;
-    private float globalCooldown = 0f;
+    private float globalCooldown = 0.5f;
     public Timer canAttackTimer = new Timer();
 
     public AudioSource enemyAttackSound;
@@ -109,7 +109,7 @@ public class AttackManager : MonoBehaviour
     void BeginAttack(Attack attack)
     {
         attack.BeginAttack(GetComponent<Animator>());
-        canAttackTimer.Start(attack.attackLength + globalCooldown);
+        canAttackTimer.Start(attack.attackLength * GetComponent<Animator>().speed + globalCooldown);
         currentAttack = attack;
 
         navMeshAgent.updatePosition = false;

@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour {
 
     public Timer gameTimer = new Timer();
     public float startTime;
-    float totalTime = 300f;
+    float totalTime = 500f;
 
     // Use this for initialization
     void Start () {

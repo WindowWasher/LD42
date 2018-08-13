@@ -13,7 +13,7 @@ public class PlayerInventory : MonoBehaviour {
 
     //private Item reachableItem;
 
-    private float reach = 8f;
+    private float reach = 12f;
 
     public Item heldItem;
 
@@ -163,11 +163,11 @@ public class PlayerInventory : MonoBehaviour {
         else
         {
             GameObject obj = playerBow.getTargetedObject();
-            //Debug.Log(obj.name + " Targeted!");
+            Debug.Log(obj.name + " Targeted!");
             Health health = obj.GetComponent<Health>();
             if(health != null && health.playerCanFix && Vector3.Distance(playerBow.getCameraWorldPoint(), obj.transform.position) <= reach && heldItem.healAmount > 0)
             {
-                //Debug.Log("Healing!!!");
+                Debug.Log("Healing!!!");
                 DoorFixer doorFixer = obj.GetComponentInChildren<DoorFixer>();
                 if (doorFixer != null)
                 {

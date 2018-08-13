@@ -76,7 +76,6 @@ public class Enemy : MonoBehaviour {
         //{
         //    agentController.SetBehavior(followPlayerOnSight);
         //}
-
         
         if(agentController.movementBehavior == attackBarrier && attackBarrier != null)
         {
