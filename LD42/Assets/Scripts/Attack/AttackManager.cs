@@ -158,7 +158,7 @@ public class AttackManager : MonoBehaviour
     public GameObject findTargetInRange(Attack attack)
     {
 
-        if(enemy.attackBarrier != null && enemy.attackBarrier.target != null && Vector3.Distance(enemy.attackBarrier.targetPosition, this.transform.position) <= attack.attackRange)
+        if(enemy.attackBarrier != null && enemy.attackBarrier.target != null && enemy.attackBarrier.target.GetComponent<Health>().currentHealth > 0 && Vector3.Distance(enemy.attackBarrier.targetPosition, this.transform.position) <= attack.attackRange)
         {
             return enemy.attackBarrier.target;
         }

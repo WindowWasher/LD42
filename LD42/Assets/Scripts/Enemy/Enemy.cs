@@ -60,11 +60,16 @@ public class Enemy : MonoBehaviour {
         //    agentController.SetBehavior(followPlayerOnSight);
         //}
 
-        if(agentController.movementBehavior == attackBarrier && attackBarrier != null && attackBarrier.target == null)
+        
+        if(agentController.movementBehavior == attackBarrier && attackBarrier != null)
         {
-            // target just died, switch back to player
-            //agentController.SetBehavior(followPlayerOnSight);
-            defaultTarget();
+            if(attackBarrier.target == null || attackBarrier.target.GetComponent<Health>().currentHealth <=0)
+            {
+                // target just died, switch back to player
+                //agentController.SetBehavior(followPlayerOnSight);
+                defaultTarget();
+            }
+            
         }
 
         if(rightAfterDeathTimer != null && rightAfterDeathTimer.Expired())
@@ -75,9 +80,12 @@ public class Enemy : MonoBehaviour {
 
     public void switchTarget(GameObject barrier)
     {
-        attackBarrier = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, barrier);
-        //attackManager.addBarrierTarget();
-        agentController.SetBehavior(attackBarrier);
+        if (barrier.GetComponent<Health>().currentHealth > 0)
+        {
+            attackBarrier = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, barrier);
+            //attackManager.addBarrierTarget();
+            agentController.SetBehavior(attackBarrier);
+        }
     }
 
     bool playerInSight()

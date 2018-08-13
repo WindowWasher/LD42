@@ -15,7 +15,8 @@ public class Health : MonoBehaviour
     public int currentHealth { get; private set; }
 
     private bool isAlive = true;
-    private bool isDoorFixer = false;
+    //public bool isDoorFixer = false;
+    public DoorFixer doorFixer = null;
 
     public bool playerCanFix = false;
 
@@ -28,10 +29,10 @@ public class Health : MonoBehaviour
             OnHealthChange(currentHealth, maxHealth);
         }
 
-        if(this.GetComponent<DoorFixer>() != null)
+        doorFixer = this.GetComponent<DoorFixer>();
+        if (doorFixer != null)
         {
             currentHealth = 0;
-            isDoorFixer = true;
         }
 
     }
@@ -39,7 +40,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (isAlive || isDoorFixer)
+        if (isAlive || doorFixer != null)
         {
             currentHealth -= amount;
 
@@ -51,18 +52,23 @@ public class Health : MonoBehaviour
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                if (this.GetComponent<DoorFixer>() != null)
+                if (doorFixer == null)
                 {
                     isAlive = false;
                     Die();
                 }
             }
         }
+
+        if(doorFixer != null)
+        {
+            doorFixer.setDoor();
+        }
     }
 
     public void HealDamage(int amount)
     {
-        if (isAlive || isDoorFixer)
+        if (isAlive || doorFixer != null)
         {
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
