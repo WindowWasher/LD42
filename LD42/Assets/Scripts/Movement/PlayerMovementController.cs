@@ -64,16 +64,17 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector3 targetDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         targetDirection = transform.TransformDirection(targetDirection);
-
-        bool isGrounded = bodyController.controller.isGrounded;
-        if (isGrounded && Input.GetButton("Jump"))
-        {
-            bodyController.jump();
-        }
+        
 
         if (targetDirection != Vector3.zero)
         {
             bodyController.moveInDirection(targetDirection);
+        }
+
+        bool isGrounded = bodyController.controller.isGrounded;
+        if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            bodyController.jump();
         }
     }
 

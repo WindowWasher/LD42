@@ -32,15 +32,15 @@ public class DoorFixer : MonoBehaviour {
 
         if (percent >= 0.33)
         {
-            setHealth(100);
+            setHealth(300);
         }
         else if (percent > 0)
         {
-            setHealth(65);
+            setHealth(200);
         }
         else
         {
-            setHealth(32);
+            setHealth(100);
         }
         setDoor();
     }

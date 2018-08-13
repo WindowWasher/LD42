@@ -47,6 +47,7 @@ public class BodyController : MonoBehaviour
 
     public void jump()
     {
+        Debug.Log("Jumping!");
         this.externalForces.y = jumpSpeed;
     }
 
@@ -95,13 +96,17 @@ public class BodyController : MonoBehaviour
 
         if(this.gameObject.GetComponent<Enemy>() == null)
         {
-            if(this.controller.isGrounded)
+            if (this.controller.isGrounded && externalForces.y < 0)
             {
-                externalForces.y = 0f;
+                externalForces.y = -0.5f;
             }
+            //if(this.controller.isGrounded)
+            //{
+            //    externalForces.y = 0f;
+            //}
             //else
             //{
-                externalForces.y = Mathf.Max(externalForces.y - gravity * Time.deltaTime, -terminalVelocity);
+            externalForces.y = Mathf.Max(externalForces.y - gravity * Time.deltaTime, -terminalVelocity);
             //    if(externalForces.y > -0.3f && externalForces.y < 0f)
             //{
             //    externalForces.y = -0.5f;
@@ -135,6 +140,11 @@ public class BodyController : MonoBehaviour
             externalForces.z = externalForces.z - externalFrameReduction * (externalForces.z > 0 ? 1 : -1);
         }
     }
+
+    //public bool isGrounded()
+    //{
+        
+    //}
 
     public void Ragdoll()
     {
