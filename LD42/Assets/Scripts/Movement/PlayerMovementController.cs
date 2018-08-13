@@ -16,6 +16,8 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 smoothV;
     private Vector2 mouseLook;
 
+    private Timer lastJumpTimer = new Timer();
+
     //private Animator playerAnimator;
     //private Animator playerArrowAnimator;
 
@@ -72,9 +74,10 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         bool isGrounded = bodyController.controller.isGrounded;
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (lastJumpTimer.Expired() && Input.GetButtonDown("Jump"))
         {
             bodyController.jump();
+            lastJumpTimer.Start(1f);
         }
     }
 

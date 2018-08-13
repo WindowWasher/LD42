@@ -9,6 +9,8 @@ public class HealthBar : MonoBehaviour
     private Health health;
     public Image healthFg;
 
+    bool firstUpdate = false;
+
     // Use this for initialization
     void Start()
     {
@@ -23,11 +25,11 @@ public class HealthBar : MonoBehaviour
         {
             health.OnHealthChange -= UpdateHealth;
         }
-
     }
 
     void UpdateHealth(int currentHealth, int damageTaken)
     {
+        Debug.Log("updaingt helath");
         healthFg.fillAmount = (float)currentHealth / health.MaxHealth;
     }
 
@@ -39,6 +41,11 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
+        if(!firstUpdate)
+        {
+            UpdateHealth(health.currentHealth, health.MaxHealth);
+            firstUpdate = true;
+        }
         //if (this.gameObject.transform.parent.GetComponent<Building>() == null)
         //{
         //    this.transform.LookAt(Camera.main.transform);
