@@ -6,6 +6,7 @@ public class GameOver : MonoBehaviour {
 
     public GameObject gameOverScreen;
     public GameObject player;
+    public GameObject fire;
 
 	// Use this for initialization
 	void Start () {
@@ -28,5 +29,16 @@ public class GameOver : MonoBehaviour {
             gameOverScreen.SetActive(true);
         }
     }
-	
+
+    void Update()
+    {
+        if (fire == null)
+        {
+            // Pause the game
+            Time.timeScale = 0;
+
+            gameOverScreen.SetActive(true);
+        }
+    }
+
 }
