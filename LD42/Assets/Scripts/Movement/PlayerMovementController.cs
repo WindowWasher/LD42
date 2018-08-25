@@ -137,7 +137,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter " + other.name);
+        //Debug.Log("OnTriggerEnter " + other.name);
         AttackManager attackController = other.gameObject.GetComponentInParent<AttackManager>();
 
         if (attackController != null)

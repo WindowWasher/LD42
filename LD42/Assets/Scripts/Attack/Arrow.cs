@@ -249,7 +249,7 @@ public class Arrow : MonoBehaviour {
 
         noHitTimer = null;
 
-        Debug.Log("Hit: " + other.gameObject.name);
+        //Debug.Log("Hit: " + other.gameObject.name);
 
         Health otherHealth = other.gameObject.GetComponentInParent<Health>();
         Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
@@ -287,7 +287,7 @@ public class Arrow : MonoBehaviour {
         var distance = heading.magnitude;
         var direction = heading / distance; // This is now the normalized direction.
 
-        Debug.Log("Distance: " + distance.ToString());
+        //Debug.Log("Distance: " + distance.ToString());
 
         this.transform.position = this.transform.position + direction * distance / 2;
 

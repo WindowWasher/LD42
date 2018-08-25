@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour {
 
     private EnemyManager enemyManager;
 
+    public bool preStartEnemy = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,7 +37,10 @@ public class Enemy : MonoBehaviour {
 
         animator.speed = animationSpeed; 
         enemyManager = GameObject.Find("ZombieSpawner").GetComponent<EnemyManager>();
-        playerKiller = (Random.value > 0.8f);
+        float randomNum = Random.Range(0f, 1f);
+        playerKiller = (randomNum > 0.7f) && !preStartEnemy;
+        //Debug.Log("PLayer Killer: " + playerKiller.ToString() + "- " + randomNum.ToString());
+        //playerKiller = true;
 
         followPlayerOnSight = new FollowPlayerOnSight(this.gameObject, attackManager.meeleAttackRange - 0.5f);
         //attackFire = new AttackBarrier(this.gameObject, attackManager.meeleAttackRange - 0.5f, GameObject.Find("BonFire"));
