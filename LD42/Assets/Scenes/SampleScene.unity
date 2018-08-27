@@ -39236,7 +39236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   welcomeInformation: {fileID: 1871977880}
-  gameStarted: 0
 --- !u!1001 &1875342738
 Prefab:
   m_ObjectHideFlags: 0
@@ -40463,7 +40462,7 @@ GameObject:
   - component: {fileID: 1942287967}
   m_Layer: 10
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
